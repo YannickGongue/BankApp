@@ -1,0 +1,119 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0-windows7.0": {
+      "BankAppClassLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/BankAppClassLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BankAppClassLibrary.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
+      "BankAppControlLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/BankAppControlLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BankAppControlLibrary.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      }
+    }
+  },
+  "libraries": {
+    "BankAppClassLibrary/1.0.0": {
+      "type": "project",
+      "path": "../../BankAppClassLibrary/BankAppClassLibrary.csproj",
+      "msbuildProject": "../../BankAppClassLibrary/BankAppClassLibrary.csproj"
+    },
+    "BankAppControlLibrary/1.0.0": {
+      "type": "project",
+      "path": "../../BankAppControlLibrary/BankAppControlLibrary.csproj",
+      "msbuildProject": "../../BankAppControlLibrary/BankAppControlLibrary.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0-windows7.0": [
+      "BankAppClassLibrary >= 1.0.0",
+      "BankAppControlLibrary >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\vamic\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankApp\\BankApp.csproj",
+      "projectName": "BankApp",
+      "projectPath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankApp\\BankApp.csproj",
+      "packagesPath": "C:\\Users\\vamic\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankApp\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\vamic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0-windows7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.syncfusion.com/nuget_wpf/nuget/getsyncfusionpackages/wpf.": {}
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "projectReferences": {
+            "C:\\Users\\vamic\\source\\repos\\BankApp\\BankAppClassLibrary\\BankAppClassLibrary.csproj": {
+              "projectPath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankAppClassLibrary\\BankAppClassLibrary.csproj"
+            },
+            "C:\\Users\\vamic\\source\\repos\\BankApp\\BankAppControlLibrary\\BankAppControlLibrary.csproj": {
+              "projectPath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankAppControlLibrary\\BankAppControlLibrary.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0-windows7.0": {
+        "targetAlias": "net5.0-windows",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
