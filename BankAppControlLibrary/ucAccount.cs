@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
-using System.Data;
+
 using BankAppClassLibrary;
 using System.Configuration;
 
@@ -18,7 +18,7 @@ namespace BankAppControlLibrary
     {
        
         private clsDbTablenames dbName;
-        private string strConnectionString;
+        
         private clsDatabaseManager dbManager;
         private DataTable dtTable;
         private DataSet dsDataset;
@@ -48,9 +48,9 @@ namespace BankAppControlLibrary
                                                        this.dbName.STR_FN_ACCOUNT_TYPE, this.dbName.STR_FN_CREATEDAT,
                                                        this.tbAccountId.Text, this.tbBalance.Text,
                                                        this.tbIban.Text, this.cbAccountType.Text, this.tbDate.Text);
-            this.dbManager = new clsDatabaseManager(strAccountRegister, this.dbName.STR_TBL_ACCOUNT);
+            this.dbManager = new clsDatabaseManager(strAccountRegister);
 
-            this.dbManager.SaveChanges(this.dsDataset);
+            this.dbManager.SaveChanges(this.dsDataset, this.dbName.STR_TBL_ACCOUNT);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -59,9 +59,9 @@ namespace BankAppControlLibrary
                                                      this.dbName.STR_TBL_ACCOUNT,
                                                      this.dbName.STR_FN_ID_ACCOUNT,
                                                      this.tbAccountId.Text);
-            this.dbManager = new clsDatabaseManager(strAccountDelete, this.dbName.STR_TBL_ACCOUNT);
+            this.dbManager = new clsDatabaseManager(strAccountDelete);
 
-            this.dbManager.SaveChanges(this.dsDataset);
+            this.dbManager.SaveChanges(this.dsDataset, this.dbName.STR_TBL_ACCOUNT);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -81,7 +81,7 @@ namespace BankAppControlLibrary
                                                    this.dbName.STR_FN_ID_CUSTOMER,                    
                                                    this.tbCustomerID.Text );
 
-            this.dbManager = new clsDatabaseManager(strQuerySearch, this.dbName.STR_TBL_ACCOUNT);
+            this.dbManager = new clsDatabaseManager(strQuerySearch);
             this.dtTable = this.dbManager.LoadInfo();
             if (this.dtTable.Rows.Count > 0)
             {

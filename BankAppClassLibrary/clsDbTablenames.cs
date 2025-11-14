@@ -14,6 +14,7 @@ namespace BankAppClassLibrary
         public string STR_TBL_ACCOUNT = "Accounts";
         public string STR_TBL_CUSTOMER = "Customers";
         public string STR_TBL_TRANSACTIONS = "Transactions";
+        public string STR_TBL_ACCOUNT_BALANCES = "AcountBalances";
 
         // Spaltename der Datenbank.
         public string STR_FN_ID_ACCOUNT = "AccountID";
@@ -34,8 +35,9 @@ namespace BankAppClassLibrary
         public string STR_FN_TRANSACTION_TYPE = "TransactionType";
         public string STR_FN_AMOUNT = "Amount";
         public string STR_FN_TRANSACTION_DATE = "TransactionDate";
-        public string STR_FN_TRANSACTION_NR = "TransactionNr";
+        public string STR_FN_TRANSACTION_NR= "TransactionNr";
         public string STR_PURPOSE = "Purpose";
+        public string STR_FN_IS_DELETED = "IsDeleted";
         
     }
 }

@@ -41,8 +41,8 @@ namespace BankAppControlLibrary
                                 this.tbStreet.Text, this.tbNr.Text, 
                                 this.tbPlz.Text,this.tbCity.Text, 
                                 this.dtpCreatedAt.Value, this.tbEmail.Text, this.tbCustomerId.Text);
-            this.dbManager = new clsDatabaseManager(strQuerySave,this.dbName.STR_TBL_CUSTOMER);
-            this.dbManager.SaveChanges(dsDataset);
+            this.dbManager = new clsDatabaseManager(strQuerySave);
+            this.dbManager.SaveChanges(dsDataset, this.dbName.STR_TBL_CUSTOMER);
         }
 
         private void btnSearch_click(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace BankAppControlLibrary
                                                  this.dbName.STR_FN_ZIPCODE, this.dbName.STR_FN_CITY,
                                                  this.dbName.STR_FN_CREATEDAT,this.dbName.STR_FN_EMAIL, 
                                                  this.dbName.STR_FN_ID_CUSTOMER, this.tbCustomerId.Text);
-            this.dbManager = new clsDatabaseManager(strCustomerSearch, this.dbName.STR_TBL_CUSTOMER);
+            this.dbManager = new clsDatabaseManager(strCustomerSearch);
             this.dtTable = this.dbManager.LoadInfo();
             if(this.dtTable.Rows.Count > 0)
             {
@@ -88,8 +88,8 @@ namespace BankAppControlLibrary
                                                      this.tbNr.Text,this.tbPlz.Text,this.tbCity.Text,
                                                      this.dtpCreatedAt.Value,this.tbEmail.Text);
 
-            this.dbManager = new clsDatabaseManager(strCustomerInsert, this.dbName.STR_TBL_CUSTOMER);
-            this.dbManager.SaveChanges(dsDataset);
+            this.dbManager = new clsDatabaseManager(strCustomerInsert);
+            this.dbManager.SaveChanges(dsDataset, this.dbName.STR_TBL_CUSTOMER);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -99,8 +99,8 @@ namespace BankAppControlLibrary
                                                       this.dbName.STR_TBL_CUSTOMER, 
                                                       this.dbName.STR_FN_ID_CUSTOMER,
                                                       this.tbCustomerId.Text);
-            this.dbManager = new clsDatabaseManager(strCustomerDelete, this.dbName.STR_TBL_CUSTOMER);
-            this.dbManager.SaveChanges(dsDataset);
+            this.dbManager = new clsDatabaseManager(strCustomerDelete);
+            this.dbManager.SaveChanges(dsDataset, this.dbName.STR_TBL_CUSTOMER);
         }
 
         private void Cancel_Click(object sender, EventArgs e)

@@ -42,13 +42,13 @@ namespace BankAppControlLibrary
                                                             this.dbName.STR_FN_TRANSACTION_TYPE,
                                                             this.dbName.STR_FN_AMOUNT,
                                                             this.dbName.STR_FN_CREATEDAT,
-                                                            this.dbName.STR_FN_TRANSACTION_NR,
+                                                            this.dbName.STR_FN_ID_TRANSACTION,
                                                             this.dbName.STR_TBL_ACCOUNT,
                                                             this.dbName.STR_TBL_CUSTOMER,
                                                             this.dbName.STR_FN_ID_CUSTOMER,
                                                             this.tbCustomerID.Text);
 
-            this.dbManager = new clsDatabaseManager(strOldTransactionSearch, this.dbName.STR_TBL_TRANSACTIONS);
+            this.dbManager = new clsDatabaseManager(strOldTransactionSearch);
             this.dtTable = this.dbManager.LoadInfo();
             this.dgvTansactions.DataSource = this.dtTable;
         }
@@ -69,13 +69,13 @@ namespace BankAppControlLibrary
                                                             this.dbName.STR_FN_TRANSACTION_TYPE,
                                                             this.dbName.STR_FN_AMOUNT,
                                                             this.dbName.STR_FN_CREATEDAT,
-                                                            this.dbName.STR_FN_TRANSACTION_NR,
+                                                            this.dbName.STR_FN_ID_TRANSACTION,
                                                             this.dbName.STR_TBL_ACCOUNT,
                                                             this.dbName.STR_TBL_CUSTOMER,
                                                             this.dbName.STR_FN_ID_CUSTOMER,
                                                             this.tbCustomerID.Text);
 
-            this.dbManager = new clsDatabaseManager(strOldTransactionSearch, this.dbName.STR_TBL_TRANSACTIONS);
+            this.dbManager = new clsDatabaseManager(strOldTransactionSearch);
             this.dtTable = this.dbManager.LoadInfo();
             this.dgvTansactions.DataSource = this.dtTable;
         }
@@ -94,31 +94,62 @@ namespace BankAppControlLibrary
                                                             this.dbName.STR_FN_TRANSACTION_TYPE,
                                                             this.dbName.STR_FN_AMOUNT,
                                                             this.dbName.STR_FN_CREATEDAT,
-                                                            this.dbName.STR_FN_TRANSACTION_NR,
+                                                            this.dbName.STR_FN_ID_TRANSACTION,
                                                             this.dbName.STR_TBL_ACCOUNT,
                                                             this.dbName.STR_TBL_CUSTOMER,                                                                                               
                                                             this.dbName.STR_FN_ID_CUSTOMER,
                                                             this.tbCustomerID.Text);
 
-            this.dbManager = new clsDatabaseManager(strAllTransactionSearch, this.dbName.STR_TBL_TRANSACTIONS);
+            this.dbManager = new clsDatabaseManager(strAllTransactionSearch);
             this.dtTable = this.dbManager.LoadInfo();
             this.dgvTansactions.DataSource = this.dtTable; 
         }
 
-
+     
         private void btnDelete_click(object sender, EventArgs e)
         {
+            
+            string strDeleteTransaction = string.Format("UPDATE {0} SET {1} = 1 WHERE {2} = '{3}",
+                                                        this.dbName.STR_TBL_TRANSACTIONS,
+                                                        this.dbName.STR_FN_IS_DELETED,
+                                                        this.dbName.STR_FN_ID_TRANSACTION,
+                                                        this.tbTransactionNr.Text);
+            this.dbManager = new clsDatabaseManager(strDeleteTransaction);
+            try
+            {
+                this.dbManager.DeleteTransaction();
+                MessageBox.Show("Transaction deleted successfully!", "OK",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
-        private void btnDisplayBalance__Click(object sender, EventArgs e)
-        {
 
+        private void btnDisplayBalance__Click(object sender, EventArgs e)
+        {          
+            string strBalance = string.Format(" SELECT {1} FROM {0} WHERE {2} ='{3}",
+                                              this.dbName.STR_TBL_ACCOUNT_BALANCES,
+                                              this.dbName.STR_FN_BALANCE,
+                                              this.dbName.STR_FN_ID_ACCOUNT,
+                                              this.tbAccountID.Text);
+            this.dbManager = new clsDatabaseManager(strBalance);
+           this.lblDisplaySaldo.Text = this.dbManager.LoadBalances().Rows[0].ToString();
         }
 
         private void dgvTransactions_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            DataGridViewRow dgrRow = dgvTansactions.Rows[e.RowIndex];
+            this.tbAccountID.Text = dgrRow.Cells["AccountID"].Value.ToString();
+            this.tbAmount.Text = dgrRow.Cells["AccountID"].Value.ToString();
+            this.cbTansactionType.Text = dgrRow.Cells["TransactionType"].Value.ToString();
+            this.tbTransactionNr.Text = dgrRow.Cells["TransactionNr"].Value.ToString();
+            this.tbPurpose.Text = dgrRow.Cells["Purpose"].Value.ToString();
+            this.dptTransactionDate.Text = dgrRow.Cells["AccountID"].Value.ToString();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -128,7 +159,31 @@ namespace BankAppControlLibrary
 
         private void btnTransfert_Click(object sender, EventArgs e)
         {
+            string strDefault = "";
+            string strProcedure = "sp_AddTransaction";
+            this.dTransactions = new Dictionary<string, object>
+            {
+                {"@AccountID", this.tbAccountID.Text},
+                {"@Amount", this.tbAmount.Text},
+                {"@TransactionNr", this.tbTransactionNr.Text},
+                {"@Purpose",this.tbPurpose.Text },
+                {"@TransactionType",this.cbTansactionType.SelectedItem.ToString() },
+                {"@Date",this.dptTransactionDate.Text },
+            };
 
+            this.dbManager = new clsDatabaseManager(strDefault);
+            try
+            {              
+                this.dbManager.AddTransaction(this.dTransactions, strProcedure);
+                MessageBox.Show("Transaction added successfully!", "OK",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }

@@ -36,6 +36,7 @@ namespace BankAppControlLibrary
             this.tbTransactionNr = new System.Windows.Forms.TextBox();
             this.tbCustomerID = new System.Windows.Forms.TextBox();
             this.btnTranfert = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAllTransactions = new System.Windows.Forms.Button();
             this.dgvTansactions = new System.Windows.Forms.DataGridView();
@@ -125,6 +126,18 @@ namespace BankAppControlLibrary
             this.btnTranfert.Text = "transfert";
             this.btnTranfert.UseVisualStyleBackColor = false;
             this.btnTranfert.Click += new System.EventHandler(this.btnTransfert_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSave.Location = new System.Drawing.Point(133, 354);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(112, 38);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+          
             // 
             // btnDelete
             // 
@@ -232,6 +245,7 @@ namespace BankAppControlLibrary
             this.panel1.Controls.Add(this.lblType);
             this.panel1.Controls.Add(this.btnTranfert);
             this.panel1.Controls.Add(this.cbTansactionType);
+            this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.tbAccountID);
             this.panel1.Controls.Add(this.tbIban);
@@ -427,6 +441,7 @@ namespace BankAppControlLibrary
         //private System.Windows.Forms.TextBox tbDisplayBalance;
         private System.Windows.Forms.TextBox tbCustomerID;
         private System.Windows.Forms.Button btnTranfert;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAllTransactions;
         private System.Windows.Forms.Label lblType;
