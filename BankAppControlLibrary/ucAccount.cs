@@ -43,7 +43,7 @@ namespace BankAppControlLibrary
         {
             string strAccountRegister = string.Format( "INSERT INTO {0} ({1},{2},{3},{4},{5})" +
                                                        "VALUES('{6}','{7}','{8}','{9}','{10}')",
-                                                       this.dbName.STR_TBL_ACCOUNT, this.dbName.STR_FN_ID_ACCOUNT,
+                                                       this.dbName.STR_TBL_ACCOUNT, this.dbName.STR_FN_ID_CUSTOMER,
                                                        this.dbName.STR_FN_BALANCE, this.dbName.STR_FN_IBAN,
                                                        this.dbName.STR_FN_ACCOUNT_TYPE, this.dbName.STR_FN_CREATEDAT,
                                                        this.tbAccountId.Text, this.tbBalance.Text,

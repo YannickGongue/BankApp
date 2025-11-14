@@ -34,9 +34,10 @@ namespace BankAppClassLibrary
             {
                 this.sdaAdapter = new SqlDataAdapter();
                 this.sdaAdapter.SelectCommand = new SqlCommand(strQuery, sqlconManager);
-                 sqlconManager.Open();
-                 this.sdaAdapter.Fill(dt);               
+                this.sqlconManager.Open();
+                this.sdaAdapter.Fill(dt);               
             }
+
             return  dt;          
         }
 
@@ -48,7 +49,25 @@ namespace BankAppClassLibrary
             sdaAdapter.DeleteCommand = builder.GetDeleteCommand();
             sdaAdapter.UpdateCommand = builder.GetUpdateCommand();
             sdaAdapter.Update(dsDataset, this.strTable);
-        }      
+        }
+
+        public void AddTransaction(Dictionary<string, object> parameters, string strProcedure)
+        {
+            using (this.sqlconManager = new SqlConnection(this.strConnectionString))
+            {
+                using var cmd = new SqlCommand(strProcedure, sqlconManager);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                foreach (var p in parameters)
+                {
+                    cmd.Parameters.AddWithValue(p.Key, p.Value ?? DBNull.Value);
+                }
+
+                sqlconManager.Open();
+                cmd.ExecuteNonQuery();
+            }            
+            
+        }
 
     }
 }

@@ -17,6 +17,7 @@ namespace BankAppControlLibrary
         private clsDatabaseManager dbManager;
         private DataTable dtTable;
         private DataSet dsDataset;
+        private Dictionary<string, object> dTransactions;
         public UserTransactions()
         {
             InitializeComponent();
@@ -28,46 +29,84 @@ namespace BankAppControlLibrary
         
         private void btnNewTransactions_Click(object sender, EventArgs e)
         {
+            string strOldTransactionSearch = string.Format("SELECT a.{1}, a.{2}, t.{3}, t.{4}, t.{5},  t.{6}" +
+                                                            "FROM {0} t " +
+                                                            "JOIN {7} a ON t.{3} = a.{3} " +
+                                                            "JOIN {8} c ON a.{9} = c.{9}" +
+                                                            "WHERE a.{3} = '{10}'" +
+                                                            " AND t.{5} <=  DATEFROMPARTS(YEAR(GETDATE()), MONTH(GETDATE()), 1) " +
+                                                            "ORDER BY t.{5} DESC",
+                                                           this.dbName.STR_TBL_TRANSACTIONS,
+                                                            this.dbName.STR_FN_IBAN,
+                                                            this.dbName.STR_FN_ID_ACCOUNT,
+                                                            this.dbName.STR_FN_TRANSACTION_TYPE,
+                                                            this.dbName.STR_FN_AMOUNT,
+                                                            this.dbName.STR_FN_CREATEDAT,
+                                                            this.dbName.STR_FN_TRANSACTION_NR,
+                                                            this.dbName.STR_TBL_ACCOUNT,
+                                                            this.dbName.STR_TBL_CUSTOMER,
+                                                            this.dbName.STR_FN_ID_CUSTOMER,
+                                                            this.tbCustomerID.Text);
 
+            this.dbManager = new clsDatabaseManager(strOldTransactionSearch, this.dbName.STR_TBL_TRANSACTIONS);
+            this.dtTable = this.dbManager.LoadInfo();
+            this.dgvTansactions.DataSource = this.dtTable;
         }
 
         private void btnOldTransactions_Click(object sender, EventArgs e)
         {
+            string strOldTransactionSearch = string.Format("SELECT a.{1}, a.{2}, t.{3}, t.{4}, t.{5},  t.{6}" +
+                                                            "FROM {0} t " +
+                                                            "JOIN {7} a ON t.{3} = a.{3} " +
+                                                            "JOIN {8} c ON a.{9} = c.{9}" +
+                                                            "WHERE a.{3} = '{10}'" +
+                                                            " AND t.{5} >= DATEADD(MONTH, -6, GETDATE()) " +
+                                                            " AND t.{5} <= GETDATE()" +
+                                                            "ORDER BY t.{5} DESC",
+                                                            this.dbName.STR_TBL_TRANSACTIONS,
+                                                            this.dbName.STR_FN_IBAN,
+                                                            this.dbName.STR_FN_ID_ACCOUNT,
+                                                            this.dbName.STR_FN_TRANSACTION_TYPE,
+                                                            this.dbName.STR_FN_AMOUNT,
+                                                            this.dbName.STR_FN_CREATEDAT,
+                                                            this.dbName.STR_FN_TRANSACTION_NR,
+                                                            this.dbName.STR_TBL_ACCOUNT,
+                                                            this.dbName.STR_TBL_CUSTOMER,
+                                                            this.dbName.STR_FN_ID_CUSTOMER,
+                                                            this.tbCustomerID.Text);
 
+            this.dbManager = new clsDatabaseManager(strOldTransactionSearch, this.dbName.STR_TBL_TRANSACTIONS);
+            this.dtTable = this.dbManager.LoadInfo();
+            this.dgvTansactions.DataSource = this.dtTable;
         }
 
         private void btnAllTransactions_Click(object sender, EventArgs e)
-        {
-            string strQuerySearch = string.Format("SELECT c.{1}, c.{2}, a.{3}, t.{4}, t.{5}, t.{6}, t.{7}, a.{12},a.{13}" +
-                                                  "FROM {0} t " +
-                                                  "JOIN {8} a ON t.{9} = a.{9} " +
-                                                  "JOIN {10} c ON a.{11} = c.{11}"
-                                                  "WHERE a.{9} = '{14}'"
-                                                  "ORDER BY t.{5} DESC",
-                                                  this.dbName.STR_TBL_TRANSACTIONS,
-                                                  this.dbName.STR_FN_FIRSTNAME,
-                                                  this.dbName.STR_FN_LASTNAME,
-                                                  this.dbName.STR_FN_IBAN,
-                                                  this.dbName.
-                                                  this.dbName.STR_FN_TRANSACTION_TYPE,
-                                                  this.dbName.STR_FN_BALANCE,
-                                                  this.dbName.STR_FN_CREATEDAT,
-                                                  this.dbName.STR_TBL_CUSTOMER,
-                                                  this.dbName.STR_FN_ID_CUSTOMER,
-                                                  this.tbCustomerID.Text);
+        { 
+            string strAllTransactionSearch = string.Format( "SELECT a.{1}, a.{2}, t.{3}, t.{4}, t.{5},  t.{6}" +
+                                                            "FROM {0} t " +
+                                                            "JOIN {7} a ON t.{3} = a.{3} " +
+                                                            "JOIN {8} c ON a.{9} = c.{9}" +
+                                                            "WHERE a.{3} = '{10}'"+
+                                                            "ORDER BY t.{5} DESC",
+                                                            this.dbName.STR_TBL_TRANSACTIONS,                                                      
+                                                            this.dbName.STR_FN_IBAN,
+                                                            this.dbName.STR_FN_ID_ACCOUNT,
+                                                            this.dbName.STR_FN_TRANSACTION_TYPE,
+                                                            this.dbName.STR_FN_AMOUNT,
+                                                            this.dbName.STR_FN_CREATEDAT,
+                                                            this.dbName.STR_FN_TRANSACTION_NR,
+                                                            this.dbName.STR_TBL_ACCOUNT,
+                                                            this.dbName.STR_TBL_CUSTOMER,                                                                                               
+                                                            this.dbName.STR_FN_ID_CUSTOMER,
+                                                            this.tbCustomerID.Text);
+
+            this.dbManager = new clsDatabaseManager(strAllTransactionSearch, this.dbName.STR_TBL_TRANSACTIONS);
+            this.dtTable = this.dbManager.LoadInfo();
+            this.dgvTansactions.DataSource = this.dtTable; 
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnDelete_click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
         {
 
         }
@@ -85,6 +124,11 @@ namespace BankAppControlLibrary
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+        }
+
+        private void btnTransfert_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

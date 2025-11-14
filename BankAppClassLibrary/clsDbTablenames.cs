@@ -34,6 +34,7 @@ namespace BankAppClassLibrary
         public string STR_FN_TRANSACTION_TYPE = "TransactionType";
         public string STR_FN_AMOUNT = "Amount";
         public string STR_FN_TRANSACTION_DATE = "TransactionDate";
+        public string STR_FN_TRANSACTION_NR = "TransactionNr";
         public string STR_PURPOSE = "Purpose";
         
     }

@@ -175,10 +175,8 @@ namespace BankAppControlLibrary
             // 
             this.cbAccountType.FormattingEnabled = true;
             this.cbAccountType.Items.AddRange(new object[] {
-            "Withdrawal",
-            "Deposit",
-            "Transfer",
-            "Incoming"});
+            "Checking",
+            "Savings"});
             this.cbAccountType.Location = new System.Drawing.Point(163, 230);
             this.cbAccountType.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.cbAccountType.Name = "cbAccountType";

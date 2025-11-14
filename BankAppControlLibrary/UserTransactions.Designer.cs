@@ -29,30 +29,33 @@ namespace BankAppControlLibrary
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbDate = new System.Windows.Forms.TextBox();
+            this.tbAccountID = new System.Windows.Forms.TextBox();
             this.tbIban = new System.Windows.Forms.TextBox();
             this.tbAmount = new System.Windows.Forms.TextBox();
             this.tbPurpose = new System.Windows.Forms.TextBox();
             this.tbTransactionNr = new System.Windows.Forms.TextBox();
-            this.tbCustomerIB = new System.Windows.Forms.TextBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.tbCustomerID = new System.Windows.Forms.TextBox();
+            this.btnTranfert = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAllTransactions = new System.Windows.Forms.Button();
             this.dgvTansactions = new System.Windows.Forms.DataGridView();
-            this.dgvColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Purpose = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvColTransactionNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvColAccountID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvIban = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvColType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvColPurpose = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dptTransactionDate = new System.Windows.Forms.DateTimePicker();
             this.lblTransactionsNr = new System.Windows.Forms.Label();
             this.lblIban = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
+            this.lblAccountID = new System.Windows.Forms.Label();
             this.lblPurpose = new System.Windows.Forms.Label();
             this.lblAmount = new System.Windows.Forms.Label();
             this.lblType = new System.Windows.Forms.Label();
-            this.comboBoxType = new System.Windows.Forms.ComboBox();
+            this.cbTansactionType = new System.Windows.Forms.ComboBox();
             this.btnOldTransaction = new System.Windows.Forms.Button();
             this.btnNewTransaction = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -64,13 +67,13 @@ namespace BankAppControlLibrary
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tbDate
+            // tbAccountID
             // 
-            this.tbDate.Location = new System.Drawing.Point(66, 20);
-            this.tbDate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.tbDate.Name = "tbDate";
-            this.tbDate.Size = new System.Drawing.Size(282, 31);
-            this.tbDate.TabIndex = 16;
+            this.tbAccountID.Location = new System.Drawing.Point(101, 20);
+            this.tbAccountID.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.tbAccountID.Name = "tbAccountID";
+            this.tbAccountID.Size = new System.Drawing.Size(247, 31);
+            this.tbAccountID.TabIndex = 16;
             // 
             // tbIban
             // 
@@ -91,9 +94,9 @@ namespace BankAppControlLibrary
             // tbPurpose
             // 
             this.tbPurpose.BackColor = System.Drawing.SystemColors.Window;
-            this.tbPurpose.Location = new System.Drawing.Point(126, 272);
+            this.tbPurpose.Location = new System.Drawing.Point(109, 263);
             this.tbPurpose.Name = "tbPurpose";
-            this.tbPurpose.Size = new System.Drawing.Size(211, 31);
+            this.tbPurpose.Size = new System.Drawing.Size(228, 31);
             this.tbPurpose.TabIndex = 17;
             // 
             // tbTransactionNr
@@ -103,37 +106,25 @@ namespace BankAppControlLibrary
             this.tbTransactionNr.Size = new System.Drawing.Size(208, 31);
             this.tbTransactionNr.TabIndex = 18;
             // 
-            // tbCustomerIB
+            // tbCustomerID
             // 
-            this.tbCustomerIB.Location = new System.Drawing.Point(25, 19);
-            this.tbCustomerIB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbCustomerIB.Name = "tbCustomerIB";
-            this.tbCustomerIB.Size = new System.Drawing.Size(321, 31);
-            this.tbCustomerIB.TabIndex = 5;
+            this.tbCustomerID.Location = new System.Drawing.Point(25, 19);
+            this.tbCustomerID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbCustomerID.Name = "tbCustomerID";
+            this.tbCustomerID.Size = new System.Drawing.Size(321, 31);
+            this.tbCustomerID.TabIndex = 5;
             // 
-            // btnAdd
+            // btnTranfert
             // 
-            this.btnAdd.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnAdd.Location = new System.Drawing.Point(13, 357);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(116, 38);
-            this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnSave.Location = new System.Drawing.Point(133, 354);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(112, 38);
-            this.btnSave.TabIndex = 7;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnTranfert.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnTranfert.Location = new System.Drawing.Point(13, 357);
+            this.btnTranfert.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTranfert.Name = "btnTranfert";
+            this.btnTranfert.Size = new System.Drawing.Size(116, 38);
+            this.btnTranfert.TabIndex = 6;
+            this.btnTranfert.Text = "transfert";
+            this.btnTranfert.UseVisualStyleBackColor = false;
+            this.btnTranfert.Click += new System.EventHandler(this.btnTransfert_Click);
             // 
             // btnDelete
             // 
@@ -163,40 +154,21 @@ namespace BankAppControlLibrary
             // 
             this.dgvTansactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTansactions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvColDate,
-            this.dgvAmount,
-            this.Purpose,
             this.dgvColTransactionNr,
-            this.dgvColType});
+            this.dgvColAccountID,
+            this.dgvIban,
+            this.dgvAmount,
+            this.dgvColType,
+            this.dgvColPurpose,
+            this.dgvColDate});
             this.dgvTansactions.Location = new System.Drawing.Point(25, 61);
             this.dgvTansactions.Name = "dgvTansactions";
             this.dgvTansactions.RowHeadersWidth = 62;
             this.dgvTansactions.RowTemplate.Height = 33;
             this.dgvTansactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTansactions.Size = new System.Drawing.Size(816, 362);
+            this.dgvTansactions.Size = new System.Drawing.Size(832, 362);
             this.dgvTansactions.TabIndex = 10;
             this.dgvTansactions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTransactions_CellClick);
-            // 
-            // dgvColDate
-            // 
-            this.dgvColDate.HeaderText = "Date";
-            this.dgvColDate.MinimumWidth = 8;
-            this.dgvColDate.Name = "dgvColDate";
-            this.dgvColDate.Width = 150;
-            // 
-            // dgvAmount
-            // 
-            this.dgvAmount.HeaderText = "Amount";
-            this.dgvAmount.MinimumWidth = 8;
-            this.dgvAmount.Name = "dgvAmount";
-            this.dgvAmount.Width = 150;
-            // 
-            // Purpose
-            // 
-            this.Purpose.HeaderText = "IBAN";
-            this.Purpose.MinimumWidth = 8;
-            this.Purpose.Name = "Purpose";
-            this.Purpose.Width = 150;
             // 
             // dgvColTransactionNr
             // 
@@ -205,6 +177,27 @@ namespace BankAppControlLibrary
             this.dgvColTransactionNr.Name = "dgvColTransactionNr";
             this.dgvColTransactionNr.Width = 150;
             // 
+            // dgvColAccountID
+            // 
+            this.dgvColAccountID.HeaderText = "AccountId";
+            this.dgvColAccountID.MinimumWidth = 8;
+            this.dgvColAccountID.Name = "dgvColAccountID";
+            this.dgvColAccountID.Width = 150;
+            // 
+            // dgvIban
+            // 
+            this.dgvIban.HeaderText = "IBAN";
+            this.dgvIban.MinimumWidth = 8;
+            this.dgvIban.Name = "dgvIban";
+            this.dgvIban.Width = 150;
+            // 
+            // dgvAmount
+            // 
+            this.dgvAmount.HeaderText = "Amount";
+            this.dgvAmount.MinimumWidth = 8;
+            this.dgvAmount.Name = "dgvAmount";
+            this.dgvAmount.Width = 150;
+            // 
             // dgvColType
             // 
             this.dgvColType.HeaderText = "Type";
@@ -212,20 +205,35 @@ namespace BankAppControlLibrary
             this.dgvColType.Name = "dgvColType";
             this.dgvColType.Width = 150;
             // 
+            // dgvColPurpose
+            // 
+            this.dgvColPurpose.HeaderText = "Purpose";
+            this.dgvColPurpose.MinimumWidth = 8;
+            this.dgvColPurpose.Name = "dgvColPurpose";
+            this.dgvColPurpose.Width = 110;
+            // 
+            // dgvColDate
+            // 
+            this.dgvColDate.HeaderText = "Date";
+            this.dgvColDate.MinimumWidth = 8;
+            this.dgvColDate.Name = "dgvColDate";
+            this.dgvColDate.Width = 150;
+            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.dptTransactionDate);
             this.panel1.Controls.Add(this.lblTransactionsNr);
             this.panel1.Controls.Add(this.lblIban);
-            this.panel1.Controls.Add(this.lblDate);
+            this.panel1.Controls.Add(this.lblAccountID);
             this.panel1.Controls.Add(this.lblPurpose);
             this.panel1.Controls.Add(this.lblAmount);
             this.panel1.Controls.Add(this.lblType);
-            this.panel1.Controls.Add(this.btnAdd);
-            this.panel1.Controls.Add(this.comboBoxType);
-            this.panel1.Controls.Add(this.btnSave);
+            this.panel1.Controls.Add(this.btnTranfert);
+            this.panel1.Controls.Add(this.cbTansactionType);
             this.panel1.Controls.Add(this.btnDelete);
-            this.panel1.Controls.Add(this.tbDate);
+            this.panel1.Controls.Add(this.tbAccountID);
             this.panel1.Controls.Add(this.tbIban);
             this.panel1.Controls.Add(this.tbAmount);
             this.panel1.Controls.Add(this.tbPurpose);
@@ -234,6 +242,22 @@ namespace BankAppControlLibrary
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(366, 404);
             this.panel1.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 312);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 25);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Date";
+            // 
+            // dptTransactionDate
+            // 
+            this.dptTransactionDate.Location = new System.Drawing.Point(109, 309);
+            this.dptTransactionDate.Name = "dptTransactionDate";
+            this.dptTransactionDate.Size = new System.Drawing.Size(244, 31);
+            this.dptTransactionDate.TabIndex = 19;
             // 
             // lblTransactionsNr
             // 
@@ -253,19 +277,19 @@ namespace BankAppControlLibrary
             this.lblIban.TabIndex = 10;
             this.lblIban.Text = "IBAN";
             // 
-            // lblDate
+            // lblAccountID
             // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(4, 23);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(49, 25);
-            this.lblDate.TabIndex = 9;
-            this.lblDate.Text = "Date";
+            this.lblAccountID.AutoSize = true;
+            this.lblAccountID.Location = new System.Drawing.Point(4, 23);
+            this.lblAccountID.Name = "lblAccountID";
+            this.lblAccountID.Size = new System.Drawing.Size(95, 25);
+            this.lblAccountID.TabIndex = 9;
+            this.lblAccountID.Text = "AccountID";
             // 
             // lblPurpose
             // 
             this.lblPurpose.AutoSize = true;
-            this.lblPurpose.Location = new System.Drawing.Point(13, 278);
+            this.lblPurpose.Location = new System.Drawing.Point(17, 267);
             this.lblPurpose.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPurpose.Name = "lblPurpose";
             this.lblPurpose.Size = new System.Drawing.Size(77, 25);
@@ -292,21 +316,21 @@ namespace BankAppControlLibrary
             this.lblType.TabIndex = 0;
             this.lblType.Text = "Type";
             // 
-            // comboBoxType
+            // cbTansactionType
             // 
-            this.comboBoxType.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.comboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxType.FormattingEnabled = true;
-            this.comboBoxType.Items.AddRange(new object[] {
+            this.cbTansactionType.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.cbTansactionType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTansactionType.FormattingEnabled = true;
+            this.cbTansactionType.Items.AddRange(new object[] {
             "Withdrawal",
             "Deposit",
             "Transfer",
             "Incoming"});
-            this.comboBoxType.Location = new System.Drawing.Point(131, 220);
-            this.comboBoxType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBoxType.Name = "comboBoxType";
-            this.comboBoxType.Size = new System.Drawing.Size(206, 33);
-            this.comboBoxType.TabIndex = 1;
+            this.cbTansactionType.Location = new System.Drawing.Point(109, 220);
+            this.cbTansactionType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbTansactionType.Name = "cbTansactionType";
+            this.cbTansactionType.Size = new System.Drawing.Size(228, 33);
+            this.cbTansactionType.TabIndex = 1;
             // 
             // btnOldTransaction
             // 
@@ -379,7 +403,7 @@ namespace BankAppControlLibrary
             this.Controls.Add(this.btnOldTransaction);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvTansactions);
-            this.Controls.Add(this.tbCustomerIB);
+            this.Controls.Add(this.tbCustomerID);
             this.Controls.Add(this.btnAllTransactions);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UserTransactions";
@@ -395,29 +419,23 @@ namespace BankAppControlLibrary
         }
 
         #endregion
-        private System.Windows.Forms.TextBox tbDate;
+        private System.Windows.Forms.TextBox tbAccountID;
         private System.Windows.Forms.TextBox tbIban;
         private System.Windows.Forms.TextBox tbAmount;
         private System.Windows.Forms.TextBox tbPurpose;
         private System.Windows.Forms.TextBox tbTransactionNr;
         //private System.Windows.Forms.TextBox tbDisplayBalance;
-        private System.Windows.Forms.TextBox tbCustomerIB;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.TextBox tbCustomerID;
+        private System.Windows.Forms.Button btnTranfert;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAllTransactions;
         private System.Windows.Forms.Label lblType;
-        private System.Windows.Forms.ComboBox comboBoxType;
+        private System.Windows.Forms.ComboBox cbTansactionType;
         private System.Windows.Forms.Label lblAmount;
         //private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.DataGridView dgvTansactions;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Purpose;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColTransactionNr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColType;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Label lblAccountID;
         private System.Windows.Forms.Button btnOldTransaction;
         private System.Windows.Forms.Button btnNewTransaction;
         private System.Windows.Forms.Label lblPurpose;
@@ -427,5 +445,14 @@ namespace BankAppControlLibrary
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblDisplaySaldo;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dptTransactionDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColTransactionNr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColAccountID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvIban;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColPurpose;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColDate;
     }
 }
