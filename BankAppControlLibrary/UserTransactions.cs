@@ -113,7 +113,7 @@ namespace BankAppControlLibrary
                                                         this.dbName.STR_TBL_TRANSACTIONS,
                                                         this.dbName.STR_FN_IS_DELETED,
                                                         this.dbName.STR_FN_ID_TRANSACTION,
-                                                        this.tbTransactionNr.Text);
+                                                        this.tbTransactionID.Text);
             this.dbManager = new clsDatabaseManager(strDeleteTransaction);
             try
             {
@@ -147,7 +147,7 @@ namespace BankAppControlLibrary
             this.tbAccountID.Text = dgrRow.Cells["AccountID"].Value.ToString();
             this.tbAmount.Text = dgrRow.Cells["AccountID"].Value.ToString();
             this.cbTansactionType.Text = dgrRow.Cells["TransactionType"].Value.ToString();
-            this.tbTransactionNr.Text = dgrRow.Cells["TransactionNr"].Value.ToString();
+            this.tbTransactionID.Text = dgrRow.Cells["TransactionID"].Value.ToString();
             this.tbPurpose.Text = dgrRow.Cells["Purpose"].Value.ToString();
             this.dptTransactionDate.Text = dgrRow.Cells["AccountID"].Value.ToString();
         }
@@ -165,7 +165,7 @@ namespace BankAppControlLibrary
             {
                 {"@AccountID", this.tbAccountID.Text},
                 {"@Amount", this.tbAmount.Text},
-                {"@TransactionNr", this.tbTransactionNr.Text},
+                {"@TransactionID", this.tbTransactionID.Text},
                 {"@Purpose",this.tbPurpose.Text },
                 {"@TransactionType",this.cbTansactionType.SelectedItem.ToString() },
                 {"@Date",this.dptTransactionDate.Text },
