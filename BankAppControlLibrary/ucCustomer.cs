@@ -15,13 +15,14 @@ namespace BankAppControlLibrary
     {
         private clsDbTablenames dbName;
         private clsDatabaseManager dbManager;
+        private DataTable dtTable;
         private DataSet dsDataset;
        
         public ucCustomer()
         {
             InitializeComponent();
             this.dbName = new clsDbTablenames();
-            this.dbManager = new clsDatabaseManager();
+            this.dtTable = new DataTable();
             this.dsDataset = new DataSet();         
         }
 
@@ -40,14 +41,14 @@ namespace BankAppControlLibrary
                                 this.tbStreet.Text, this.tbNr.Text, 
                                 this.tbPlz.Text,this.tbCity.Text, 
                                 this.dtpCreatedAt.Value, this.tbEmail.Text, this.tbCustomerId.Text);
-
-            this.dbManager.AddInfoToDB(strQuerySave, "2");
+            this.dbManager = new clsDatabaseManager(strQuerySave,this.dbName.STR_TBL_CUSTOMER);
+            this.dbManager.SaveChanges(dsDataset);
         }
 
         private void btnSearch_click(object sender, EventArgs e)
         {
             DataRow drRow;
-           string strQuerySearch = String.Format("SELECT {1},{2},{3},{4},{5},{6},{7},{8},{9} " +
+           string strCustomerSearch = String.Format("SELECT {1},{2},{3},{4},{5},{6},{7},{8},{9} " +
                                                  "FROM {0} " +
                                                  "WHERE {1}='{10}'",
                                                  this.dbName.STR_TBL_CUSTOMER, this.dbName.STR_FN_ID_CUSTOMER,
@@ -56,27 +57,26 @@ namespace BankAppControlLibrary
                                                  this.dbName.STR_FN_ZIPCODE, this.dbName.STR_FN_CITY,
                                                  this.dbName.STR_FN_CREATEDAT,this.dbName.STR_FN_EMAIL, 
                                                  this.tbCustomerId.Text);
-
-            this.dsDataset = this.dbManager.LoadInfo(strQuerySearch, this.dbName.STR_TBL_CUSTOMER);
-            if(this.dsDataset.Tables[this.dbName.STR_TBL_CUSTOMER].Rows.Count > 0)
+            this.dbManager = new clsDatabaseManager(strCustomerSearch, this.dbName.STR_TBL_CUSTOMER);
+            this.dtTable = this.dbManager.LoadInfo();
+            if(this.dtTable.Rows.Count > 0)
             {
-                drRow = this.dsDataset.Tables[this.dbName.STR_TBL_CUSTOMER].Rows[0];
-                this.tbFirstName.Text = this.dsDataset.Tables[0].Rows[0][1].ToString();
-                this.tbLastName.Text = this.dsDataset.Tables[0].Rows[0][2].ToString();
-                this.tbEmail.Text = this.dsDataset.Tables[0].Rows[0][3].ToString();
-                this.tbTelephon.Text = this.dsDataset.Tables[0].Rows[0][4].ToString();
-                this.tbStreet.Text = this.dsDataset.Tables[0].Rows[0][5].ToString();
-                this.tbNr.Text = this.dsDataset.Tables[0].Rows[0][6].ToString();
-                this.tbPlz.Text = this.dsDataset.Tables[0].Rows[0][7].ToString();
-                this.tbCity.Text = this.dsDataset.Tables[0].Rows[0][8].ToString();
-                this.dtpCreatedAt.Text = this.dsDataset.Tables[0].Rows[0][9].ToString();
+                drRow = this.dtTable.Rows[0];
+                this.tbFirstName.Text = drRow[1].ToString();
+                this.tbLastName.Text = drRow[2].ToString();
+                this.tbEmail.Text = drRow[3].ToString();
+                this.tbTelephon.Text = drRow[4].ToString();
+                this.tbStreet.Text = drRow[5].ToString();
+                this.tbNr.Text = drRow[6].ToString();
+                this.tbPlz.Text = drRow[7].ToString();
+                this.tbCity.Text = drRow[8].ToString();
+                this.dtpCreatedAt.Text = drRow[9].ToString();
             }
-
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {     
-            string strQueryRegister = string.Format("INSERT INTO {0} ({1},{2},{3},{4},{5},{6},{7},{8},{9})" +
+            string strCustomerInsert = string.Format("INSERT INTO {0} ({1},{2},{3},{4},{5},{6},{7},{8},{9})" +
                                                     "VALUES('{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}')",
                                                      this.dbName.STR_TBL_CUSTOMER, this.dbName.STR_FN_ID_CUSTOMER,
                                                      this.dbName.STR_FN_FIRSTNAME, this.dbName.STR_FN_LASTNAME,
@@ -88,8 +88,8 @@ namespace BankAppControlLibrary
                                                      this.tbNr.Text,this.tbPlz.Text,this.tbCity.Text,
                                                      this.dtpCreatedAt.Value,this.tbEmail.Text);
 
-            this.dbManager.AddInfoToDB(strQueryRegister, "1");           
-          
+            this.dbManager = new clsDatabaseManager(strCustomerInsert, this.dbName.STR_TBL_CUSTOMER);
+            this.dbManager.SaveChanges(dsDataset);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -99,7 +99,8 @@ namespace BankAppControlLibrary
                                                       this.dbName.STR_TBL_CUSTOMER, 
                                                       this.dbName.STR_FN_ID_CUSTOMER,
                                                       this.tbCustomerId.Text);
-            this.dbManager.AddInfoToDB(strCustomerDelete, "0");
+            this.dbManager = new clsDatabaseManager(strCustomerDelete, this.dbName.STR_TBL_CUSTOMER);
+            this.dbManager.SaveChanges(dsDataset);
         }
 
         private void Cancel_Click(object sender, EventArgs e)

@@ -12,70 +12,43 @@ namespace BankAppClassLibrary
 {
     public class clsDatabaseManager
     {
-        private SqlCommand sqlcmdManager;
+       
         private SqlConnection sqlconManager;
         private SqlDataAdapter sdaAdapter;
-        private string strConnectionString;
+        private string strConnectionString;      
+        private string strQuery;
+        private string strTable;
 
-        public void AddInfoToDB(string strQuery, string strflag)
+        public clsDatabaseManager(string strSqlQuery, string strTableName)
         {
-           
+            this.strQuery = strSqlQuery;
+            this.strTable = strTableName;
             this.strConnectionString = ConfigurationManager.ConnectionStrings["BankConnectionString"].ConnectionString;
-            //Connectionstring-Objekt instanzieren.
-            using (sqlconManager = new SqlConnection(this.strConnectionString))
-
-            //Sql-command Objekt instanzieren.
-            using (sqlcmdManager = new SqlCommand(strQuery, sqlconManager))
-            {
-               
-                try
-                {
-                    sqlcmdManager.CommandType = CommandType.Text;
-                    //Verbindung öffnen.
-                    sqlconManager.Open();
-
-                    //sql-Befehle ausführen.
-                    if (sqlcmdManager.ExecuteNonQuery() > 0)
-                    {
-                        if(strflag == "1")
-                        {
-                            MessageBox.Show("die Einträgen wurden erfolgreich in die Datenbank hinzugefügt");
-                        }
-                        else if(strflag == "0")
-                        {
-                            MessageBox.Show("die Einträgen wurden erfolgreich in die Datenbank entfernt");
-                        }
-                        else
-                        {
-                            MessageBox.Show("die Veränderungen wurden erfolgreich in die Datenbank vorgenommen");
-                        }
-                      
-                    }
-                    //Die Verbindung schließen.
-                    sqlconManager.Close();
-                }
-                catch (SqlException ex)
-                {
-                    throw new InvalidOperationException("SQL error executing query: " + ex.Message, ex);
-                }
-            }
         }
 
-       
-        public DataSet LoadInfo(string strQuery,  string strTablename)
+           
+        public DataTable LoadInfo()
         {
-            DataSet dsDataset = new DataSet();
-            using (SqlConnection connection = new SqlConnection(strConnectionString))
+            DataTable dt = new DataTable();
+            using (this.sqlconManager = new SqlConnection(this.strConnectionString))
             {
-               
-                this.sdaAdapter = new SqlDataAdapter(strQuery, connection);             
-
-                SqlCommandBuilder builder = new SqlCommandBuilder(this.sdaAdapter);
-                dsDataset = new DataSet();
-                this.sdaAdapter.Fill(dsDataset, strTablename);              
+                this.sdaAdapter = new SqlDataAdapter();
+                this.sdaAdapter.SelectCommand = new SqlCommand(strQuery, sqlconManager);
+                 sqlconManager.Open();
+                 this.sdaAdapter.Fill(dt);               
             }
-
-            return dsDataset;
+            return  dt;          
         }
+
+        public void SaveChanges(DataSet dsDataset)
+        {
+            this.sdaAdapter = new SqlDataAdapter(this.strQuery, sqlconManager);
+            SqlCommandBuilder builder = new SqlCommandBuilder(this.sdaAdapter);
+            sdaAdapter.InsertCommand = builder.GetInsertCommand();
+            sdaAdapter.DeleteCommand = builder.GetDeleteCommand();
+            sdaAdapter.UpdateCommand = builder.GetUpdateCommand();
+            sdaAdapter.Update(dsDataset, this.strTable);
+        }      
+
     }
 }

@@ -20,13 +20,15 @@ namespace BankAppControlLibrary
         private clsDbTablenames dbName;
         private string strConnectionString;
         private clsDatabaseManager dbManager;
+        private DataTable dtTable;
         private DataSet dsDataset;
 
         public ucAccount()
         {
             InitializeComponent();
-            this.dbManager = new clsDatabaseManager();
+            
             this.dbName = new clsDbTablenames();
+            this.dtTable = new DataTable();
             this.dsDataset = new DataSet();
 
         }
@@ -46,8 +48,9 @@ namespace BankAppControlLibrary
                                                        this.dbName.STR_FN_ACCOUNT_TYPE, this.dbName.STR_FN_CREATEDAT,
                                                        this.tbAccountId.Text, this.tbBalance.Text,
                                                        this.tbIban.Text, this.cbAccountType.Text, this.tbDate.Text);
+            this.dbManager = new clsDatabaseManager(strAccountRegister, this.dbName.STR_TBL_ACCOUNT);
 
-            this.dbManager.AddInfoToDB(strAccountRegister,"1");
+            this.dbManager.SaveChanges(this.dsDataset);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -56,7 +59,9 @@ namespace BankAppControlLibrary
                                                      this.dbName.STR_TBL_ACCOUNT,
                                                      this.dbName.STR_FN_ID_ACCOUNT,
                                                      this.tbAccountId.Text);
-            this.dbManager.AddInfoToDB(strAccountDelete, "0");
+            this.dbManager = new clsDatabaseManager(strAccountDelete, this.dbName.STR_TBL_ACCOUNT);
+
+            this.dbManager.SaveChanges(this.dsDataset);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -76,16 +81,16 @@ namespace BankAppControlLibrary
                                                    this.dbName.STR_FN_ID_CUSTOMER,                    
                                                    this.tbCustomerID.Text );
 
-
-            this.dsDataset = this.dbManager.LoadInfo(strQuerySearch, this.dbName.STR_TBL_ACCOUNT);
-            if (this.dsDataset.Tables[this.dbName.STR_TBL_CUSTOMER].Rows.Count > 0)
+            this.dbManager = new clsDatabaseManager(strQuerySearch, this.dbName.STR_TBL_ACCOUNT);
+            this.dtTable = this.dbManager.LoadInfo();
+            if (this.dtTable.Rows.Count > 0)
             {
-                drRow = this.dsDataset.Tables[this.dbName.STR_TBL_CUSTOMER].Rows[0];
-                this.tbAccountId.Text = this.dsDataset.Tables[0].Rows[0][1].ToString();
-                this.tbIban.Text = this.dsDataset.Tables[0].Rows[0][2].ToString();
-                this.cbAccountType.Text = this.dsDataset.Tables[0].Rows[0][3].ToString();
-                this.tbBalance.Text = this.dsDataset.Tables[0].Rows[0][4].ToString();
-                this.tbDate.Text = this.dsDataset.Tables[0].Rows[0][5].ToString();               
+                drRow = this.dtTable.Rows[0];
+                this.tbAccountId.Text = drRow[1].ToString();
+                this.tbIban.Text = drRow[2].ToString();
+                this.cbAccountType.Text = drRow[3].ToString();
+                this.tbBalance.Text = drRow[4].ToString();
+                this.tbDate.Text = drRow[5].ToString();               
             }
         }
     }
