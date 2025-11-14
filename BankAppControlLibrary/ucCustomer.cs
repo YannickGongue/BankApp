@@ -47,13 +47,15 @@ namespace BankAppControlLibrary
         private void btnSearch_click(object sender, EventArgs e)
         {
             DataRow drRow;
-           string strQuerySearch = String.Format("SELECT {1},{2},{3},{4},{5},{6},{7},{8},{9} FROM {0} WHERE {1}='{10}'",
-                                                  this.dbName.STR_TBL_CUSTOMER, this.dbName.STR_FN_ID_CUSTOMER,
-                                                  this.dbName.STR_FN_FIRSTNAME, this.dbName.STR_FN_LASTNAME,
-                                                  this.dbName.STR_FN_STREET, this.dbName.STR_FN_HOUSNUMBER,
-                                                  this.dbName.STR_FN_ZIPCODE, this.dbName.STR_FN_CITY,
-                                                  this.dbName.STR_FN_CREATEDAT,this.dbName.STR_FN_EMAIL, 
-                                                  this.tbCustomerId.Text);
+           string strQuerySearch = String.Format("SELECT {1},{2},{3},{4},{5},{6},{7},{8},{9} " +
+                                                 "FROM {0} " +
+                                                 "WHERE {1}='{10}'",
+                                                 this.dbName.STR_TBL_CUSTOMER, this.dbName.STR_FN_ID_CUSTOMER,
+                                                 this.dbName.STR_FN_FIRSTNAME, this.dbName.STR_FN_LASTNAME,
+                                                 this.dbName.STR_FN_STREET, this.dbName.STR_FN_HOUSNUMBER,
+                                                 this.dbName.STR_FN_ZIPCODE, this.dbName.STR_FN_CITY,
+                                                 this.dbName.STR_FN_CREATEDAT,this.dbName.STR_FN_EMAIL, 
+                                                 this.tbCustomerId.Text);
 
             this.dsDataset = this.dbManager.LoadInfo(strQuerySearch, this.dbName.STR_TBL_CUSTOMER);
             if(this.dsDataset.Tables[this.dbName.STR_TBL_CUSTOMER].Rows.Count > 0)
@@ -83,8 +85,8 @@ namespace BankAppControlLibrary
                                                      this.dbName.STR_FN_CREATEDAT, this.dbName.STR_FN_EMAIL,
                                                      this.tbCustomerId.Text, this.tbFirstName.Text,
                                                      this.tbLastName.Text, this.tbStreet.Text, 
-                                                     this.tbNr.Text,this.tbPlz.Text,
-                                                     this.tbCity.Text, this.dtpCreatedAt.Value,this.tbEmail.Text);
+                                                     this.tbNr.Text,this.tbPlz.Text,this.tbCity.Text,
+                                                     this.dtpCreatedAt.Value,this.tbEmail.Text);
 
             this.dbManager.AddInfoToDB(strQueryRegister, "1");           
           
@@ -93,9 +95,10 @@ namespace BankAppControlLibrary
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
-            string strCustomerDelete = string.Format("DELETE FROM {0} WHERE {1} = '{2}'",
-                                                      this.dbName.STR_TBL_CUSTOMER, this.dbName.STR_FN_ID_CUSTOMER,
-                                                       this.tbCustomerId.Text);
+            string strCustomerDelete = string.Format( "DELETE FROM {0} WHERE {1} = '{2}'",
+                                                      this.dbName.STR_TBL_CUSTOMER, 
+                                                      this.dbName.STR_FN_ID_CUSTOMER,
+                                                      this.tbCustomerId.Text);
             this.dbManager.AddInfoToDB(strCustomerDelete, "0");
         }
 

@@ -39,21 +39,22 @@ namespace BankAppControlLibrary
 
         private void btnAdd_click(object sender, EventArgs e)
         {
-            string strAccountRegister = string.Format("INSERT INTO {0} ({1},{2},{3},{4},{5})" +
-                                                    "VALUES('{6}','{7}','{8}','{9}','{10}')",
-                                                    this.dbName.STR_TBL_ACCOUNT, this.dbName.STR_FN_ID_ACCOUNT,
-                                                    this.dbName.STR_FN_BALANCE, this.dbName.STR_FN_IBAN,
-                                                    this.dbName.STR_FN_ACCOUNT_TYPE, this.dbName.STR_FN_CREATEDAT,
-                                                    this.tbAccountId.Text, this.tbBalance.Text,
-                                                    this.tbIban.Text, this.cbAccountType.Text, this.tbDate.Text);
+            string strAccountRegister = string.Format( "INSERT INTO {0} ({1},{2},{3},{4},{5})" +
+                                                       "VALUES('{6}','{7}','{8}','{9}','{10}')",
+                                                       this.dbName.STR_TBL_ACCOUNT, this.dbName.STR_FN_ID_ACCOUNT,
+                                                       this.dbName.STR_FN_BALANCE, this.dbName.STR_FN_IBAN,
+                                                       this.dbName.STR_FN_ACCOUNT_TYPE, this.dbName.STR_FN_CREATEDAT,
+                                                       this.tbAccountId.Text, this.tbBalance.Text,
+                                                       this.tbIban.Text, this.cbAccountType.Text, this.tbDate.Text);
 
             this.dbManager.AddInfoToDB(strAccountRegister,"1");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string strAccountDelete = string.Format("DELETE FROM {0} WHERE {1} = '{2}'",
-                                                     this.dbName.STR_TBL_ACCOUNT, this.dbName.STR_FN_ID_ACCOUNT,
+            string strAccountDelete = string.Format( "DELETE FROM {0} WHERE {1} = '{2}'",
+                                                     this.dbName.STR_TBL_ACCOUNT,
+                                                     this.dbName.STR_FN_ID_ACCOUNT,
                                                      this.tbAccountId.Text);
             this.dbManager.AddInfoToDB(strAccountDelete, "0");
         }
@@ -61,17 +62,19 @@ namespace BankAppControlLibrary
         private void btnSearch_Click(object sender, EventArgs e)
         {
             DataRow drRow;
-            string strQuerySearch = string.Format( "SELECT a.{1}, a.{2}, a.{3}, a.{4}, a.{5} FROM {0} a " +
-                                                   "JOIN {6} c ON a.{7} = c.{7} WHERE c.{7} = '{8}'",
-                                                    this.dbName.STR_TBL_ACCOUNT,       
-                                                    this.dbName.STR_FN_ID_ACCOUNT,      
-                                                    this.dbName.STR_FN_IBAN,           
-                                                    this.dbName.STR_FN_TRANSACTION_TYPE,
-                                                    this.dbName.STR_FN_BALANCE,        
-                                                    this.dbName.STR_FN_CREATEDAT,      
-                                                    this.dbName.STR_TBL_CUSTOMER,       
-                                                    this.dbName.STR_FN_ID_CUSTOMER,                    
-                                                    this.tbCustomerID.Text );
+            string strQuerySearch = string.Format( "SELECT a.{1}, a.{2}, a.{3}, a.{4}, a.{5} " +
+                                                   "FROM {0} a " +
+                                                   "JOIN {6} c ON a.{7} = c.{7} " +
+                                                   "WHERE c.{7} = '{8}'",
+                                                   this.dbName.STR_TBL_ACCOUNT,       
+                                                   this.dbName.STR_FN_ID_ACCOUNT,      
+                                                   this.dbName.STR_FN_IBAN,           
+                                                   this.dbName.STR_FN_TRANSACTION_TYPE,
+                                                   this.dbName.STR_FN_BALANCE,        
+                                                   this.dbName.STR_FN_CREATEDAT,      
+                                                   this.dbName.STR_TBL_CUSTOMER,       
+                                                   this.dbName.STR_FN_ID_CUSTOMER,                    
+                                                   this.tbCustomerID.Text );
 
 
             this.dsDataset = this.dbManager.LoadInfo(strQuerySearch, this.dbName.STR_TBL_ACCOUNT);
