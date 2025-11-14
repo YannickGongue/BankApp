@@ -43,7 +43,7 @@ namespace BankAppControlLibrary
             this.cbAccountType = new System.Windows.Forms.ComboBox();
             this.lblAccounType = new System.Windows.Forms.Label();
             this.tbCustomerID = new System.Windows.Forms.TextBox();
-            this.btSearch = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.gbAccount.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +59,7 @@ namespace BankAppControlLibrary
             this.btnAdd.TabIndex = 26;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_click);
             // 
             // lblDate
             // 
@@ -202,16 +203,17 @@ namespace BankAppControlLibrary
             this.tbCustomerID.Name = "tbCustomerID";
             this.tbCustomerID.Size = new System.Drawing.Size(307, 31);
             this.tbCustomerID.TabIndex = 6;
-            this.tbCustomerID.Text = "customerId enter";
             // 
-            // btSearch
+            // btnSearch
             // 
-            this.btSearch.Location = new System.Drawing.Point(356, 16);
-            this.btSearch.Name = "btSearch";
-            this.btSearch.Size = new System.Drawing.Size(129, 34);
-            this.btSearch.TabIndex = 30;
-            this.btSearch.Text = "Search";
-            this.btSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSearch.Location = new System.Drawing.Point(356, 12);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(129, 38);
+            this.btnSearch.TabIndex = 30;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnDelete
             // 
@@ -222,20 +224,21 @@ namespace BankAppControlLibrary
             this.btnDelete.TabIndex = 31;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // ucAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btSearch);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.gbAccount);
             this.Controls.Add(this.tbCustomerID);
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "ucAccount";
-            this.Size = new System.Drawing.Size(544, 479);
+            this.Size = new System.Drawing.Size(544, 515);
             this.gbAccount.ResumeLayout(false);
             this.gbAccount.PerformLayout();
             this.ResumeLayout(false);
@@ -259,7 +262,7 @@ namespace BankAppControlLibrary
         internal System.Windows.Forms.TextBox tbAccountId;
         internal System.Windows.Forms.ComboBox cbAccountType;
         internal System.Windows.Forms.Label lblAccounType;
-        private System.Windows.Forms.Button btSearch;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnDelete;
     }
 }

@@ -17,12 +17,48 @@ namespace BankAppControlLibrary
             InitializeComponent();
         }
 
-        private void buttonSave_Click(object sender, EventArgs e)
+        
+        private void btnNewTransactions_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void btnOldTransactions_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAllTransactions_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDisplayBalance__Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvTransactions_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
         {
 
         }

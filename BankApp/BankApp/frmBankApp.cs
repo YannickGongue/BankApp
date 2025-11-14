@@ -26,10 +26,10 @@ namespace BankApp
 		private void tsmuiRegister_Click(object sender, EventArgs e)
 		{
 			// LOKALEN OBJEKTVARIABLEN DEKLARIEREN:
-			ucregister ucrigRegister;     // Benutzersteuerelement zur Registrierung des Users.
+			ucCustomer ucrigRegister;     // Benutzersteuerelement zur Registrierung des Users.
 
 			// Steuerelement instanzieren.
-			ucrigRegister = new ucregister();
+			ucrigRegister = new ucCustomer();
 			this.pnlControl.Visible = true;
 			
 			// Fügt der Steuerelementauflistung das angegebene Steuerelement hinzu.

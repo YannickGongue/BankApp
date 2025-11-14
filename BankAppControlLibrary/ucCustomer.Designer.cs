@@ -1,7 +1,7 @@
 ﻿
 namespace BankAppControlLibrary
 {
-    partial class ucregister
+    partial class ucCustomer
     {
         /// <summary> 
         /// Erforderliche Designervariable.
@@ -47,10 +47,14 @@ namespace BankAppControlLibrary
             this.lblstrace = new System.Windows.Forms.Label();
             this.lblVorname = new System.Windows.Forms.Label();
             this.pnlUserRegistration = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.tbStreet = new System.Windows.Forms.TextBox();
             this.tbCustomerId = new System.Windows.Forms.TextBox();
+            this.tbStreet = new System.Windows.Forms.TextBox();
+            this.lblCustomerID = new System.Windows.Forms.Label();
+            this.lblCreatedAt = new System.Windows.Forms.Label();
+            this.dtpCreatedAt = new System.Windows.Forms.DateTimePicker();
             this.pnlUserRegistration.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,15 +68,15 @@ namespace BankAppControlLibrary
             this.btnAdd.TabIndex = 58;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSave.Location = new System.Drawing.Point(297, 453);
+            this.btnSave.Location = new System.Drawing.Point(211, 453);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(135, 43);
+            this.btnSave.Size = new System.Drawing.Size(117, 41);
             this.btnSave.TabIndex = 57;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -81,7 +85,7 @@ namespace BankAppControlLibrary
             // 
             this.LblCallNumber.AutoSize = true;
             this.LblCallNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LblCallNumber.Location = new System.Drawing.Point(11, 411);
+            this.LblCallNumber.Location = new System.Drawing.Point(13, 358);
             this.LblCallNumber.Name = "LblCallNumber";
             this.LblCallNumber.Size = new System.Drawing.Size(80, 20);
             this.LblCallNumber.TabIndex = 55;
@@ -89,35 +93,33 @@ namespace BankAppControlLibrary
             // 
             // tbTelephon
             // 
-            this.tbTelephon.Location = new System.Drawing.Point(118, 399);
+            this.tbTelephon.Location = new System.Drawing.Point(126, 347);
             this.tbTelephon.Name = "tbTelephon";
             this.tbTelephon.Size = new System.Drawing.Size(250, 31);
             this.tbTelephon.TabIndex = 54;
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(135, 162);
+            this.tbEmail.Location = new System.Drawing.Point(128, 139);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(255, 31);
             this.tbEmail.TabIndex = 53;
-            this.tbEmail.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblEmail.Location = new System.Drawing.Point(12, 173);
+            this.lblEmail.Location = new System.Drawing.Point(23, 150);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(69, 20);
             this.lblEmail.TabIndex = 44;
             this.lblEmail.Text = "Email*:";
-            this.lblEmail.Click += new System.EventHandler(this.lblEmail_Click);
             // 
             // lblCity
             // 
             this.lblCity.AutoSize = true;
             this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCity.Location = new System.Drawing.Point(20, 358);
+            this.lblCity.Location = new System.Drawing.Point(20, 315);
             this.lblCity.Name = "lblCity";
             this.lblCity.Size = new System.Drawing.Size(61, 20);
             this.lblCity.TabIndex = 52;
@@ -125,14 +127,14 @@ namespace BankAppControlLibrary
             // 
             // tbCity
             // 
-            this.tbCity.Location = new System.Drawing.Point(119, 347);
+            this.tbCity.Location = new System.Drawing.Point(126, 307);
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(250, 31);
             this.tbCity.TabIndex = 51;
             // 
             // tbPlz
             // 
-            this.tbPlz.Location = new System.Drawing.Point(119, 298);
+            this.tbPlz.Location = new System.Drawing.Point(128, 266);
             this.tbPlz.Name = "tbPlz";
             this.tbPlz.Size = new System.Drawing.Size(250, 31);
             this.tbPlz.TabIndex = 50;
@@ -141,7 +143,7 @@ namespace BankAppControlLibrary
             // 
             this.lblNr.AutoSize = true;
             this.lblNr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblNr.Location = new System.Drawing.Point(37, 263);
+            this.lblNr.Location = new System.Drawing.Point(24, 236);
             this.lblNr.Name = "lblNr";
             this.lblNr.Size = new System.Drawing.Size(48, 20);
             this.lblNr.TabIndex = 49;
@@ -149,14 +151,14 @@ namespace BankAppControlLibrary
             // 
             // tbFirstName
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(135, 67);
+            this.tbFirstName.Location = new System.Drawing.Point(128, 55);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(255, 31);
             this.tbFirstName.TabIndex = 45;
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(136, 115);
+            this.tbLastName.Location = new System.Drawing.Point(128, 96);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(254, 31);
             this.tbLastName.TabIndex = 46;
@@ -165,16 +167,15 @@ namespace BankAppControlLibrary
             // 
             this.lblZipCode.AutoSize = true;
             this.lblZipCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblZipCode.Location = new System.Drawing.Point(6, 305);
+            this.lblZipCode.Location = new System.Drawing.Point(3, 272);
             this.lblZipCode.Name = "lblZipCode";
             this.lblZipCode.Size = new System.Drawing.Size(102, 20);
             this.lblZipCode.TabIndex = 41;
             this.lblZipCode.Text = "Zip Code* :";
-            this.lblZipCode.Click += new System.EventHandler(this.lblPlz_Click);
             // 
             // tbNr
             // 
-            this.tbNr.Location = new System.Drawing.Point(119, 257);
+            this.tbNr.Location = new System.Drawing.Point(128, 229);
             this.tbNr.Name = "tbNr";
             this.tbNr.Size = new System.Drawing.Size(106, 31);
             this.tbNr.TabIndex = 48;
@@ -183,7 +184,7 @@ namespace BankAppControlLibrary
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblName.Location = new System.Drawing.Point(4, 78);
+            this.lblName.Location = new System.Drawing.Point(3, 66);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(119, 20);
             this.lblName.TabIndex = 39;
@@ -193,7 +194,7 @@ namespace BankAppControlLibrary
             // 
             this.lblstrace.AutoSize = true;
             this.lblstrace.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblstrace.Location = new System.Drawing.Point(8, 214);
+            this.lblstrace.Location = new System.Drawing.Point(15, 191);
             this.lblstrace.Name = "lblstrace";
             this.lblstrace.Size = new System.Drawing.Size(85, 20);
             this.lblstrace.TabIndex = 42;
@@ -203,7 +204,7 @@ namespace BankAppControlLibrary
             // 
             this.lblVorname.AutoSize = true;
             this.lblVorname.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblVorname.Location = new System.Drawing.Point(3, 122);
+            this.lblVorname.Location = new System.Drawing.Point(3, 100);
             this.lblVorname.Name = "lblVorname";
             this.lblVorname.Size = new System.Drawing.Size(127, 20);
             this.lblVorname.TabIndex = 40;
@@ -211,6 +212,10 @@ namespace BankAppControlLibrary
             // 
             // pnlUserRegistration
             // 
+            this.pnlUserRegistration.Controls.Add(this.dtpCreatedAt);
+            this.pnlUserRegistration.Controls.Add(this.lblCreatedAt);
+            this.pnlUserRegistration.Controls.Add(this.lblCustomerID);
+            this.pnlUserRegistration.Controls.Add(this.button1);
             this.pnlUserRegistration.Controls.Add(this.btnDelete);
             this.pnlUserRegistration.Controls.Add(this.btnSearch);
             this.pnlUserRegistration.Controls.Add(this.btnAdd);
@@ -218,7 +223,7 @@ namespace BankAppControlLibrary
             this.pnlUserRegistration.Controls.Add(this.tbFirstName);
             this.pnlUserRegistration.Controls.Add(this.tbLastName);
             this.pnlUserRegistration.Controls.Add(this.lblVorname);
-            this.pnlUserRegistration.Controls.Add(this.tbStreet);
+            this.pnlUserRegistration.Controls.Add(this.tbCustomerId);
             this.pnlUserRegistration.Controls.Add(this.lblNr);
             this.pnlUserRegistration.Controls.Add(this.lblCity);
             this.pnlUserRegistration.Controls.Add(this.lblEmail);
@@ -231,47 +236,84 @@ namespace BankAppControlLibrary
             this.pnlUserRegistration.Controls.Add(this.LblCallNumber);
             this.pnlUserRegistration.Controls.Add(this.tbTelephon);
             this.pnlUserRegistration.Controls.Add(this.btnSave);
-            this.pnlUserRegistration.Controls.Add(this.tbCustomerId);
+            this.pnlUserRegistration.Controls.Add(this.tbStreet);
             this.pnlUserRegistration.Location = new System.Drawing.Point(5, 2);
             this.pnlUserRegistration.Name = "pnlUserRegistration";
-            this.pnlUserRegistration.Size = new System.Drawing.Size(452, 511);
+            this.pnlUserRegistration.Size = new System.Drawing.Size(452, 515);
             this.pnlUserRegistration.TabIndex = 71;
-            this.pnlUserRegistration.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlUserRegistration_Paint);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.Location = new System.Drawing.Point(336, 453);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(104, 38);
+            this.button1.TabIndex = 62;
+            this.button1.Text = "Cancel";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnDelete.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnDelete.Location = new System.Drawing.Point(137, 455);
+            this.btnDelete.Location = new System.Drawing.Point(101, 455);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(112, 39);
+            this.btnDelete.Size = new System.Drawing.Size(104, 39);
             this.btnDelete.TabIndex = 60;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnSearch.Location = new System.Drawing.Point(296, 13);
+            this.btnSearch.Location = new System.Drawing.Point(336, 15);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(112, 34);
+            this.btnSearch.Size = new System.Drawing.Size(102, 34);
             this.btnSearch.TabIndex = 59;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
-            // 
-            // tbStreet
-            // 
-            this.tbStreet.Location = new System.Drawing.Point(37, 16);
-            this.tbStreet.Name = "tbStreet";
-            this.tbStreet.Size = new System.Drawing.Size(253, 31);
-            this.tbStreet.TabIndex = 47;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_click);
             // 
             // tbCustomerId
             // 
-            this.tbCustomerId.Location = new System.Drawing.Point(118, 207);
+            this.tbCustomerId.Location = new System.Drawing.Point(128, 16);
             this.tbCustomerId.Name = "tbCustomerId";
-            this.tbCustomerId.Size = new System.Drawing.Size(253, 31);
-            this.tbCustomerId.TabIndex = 61;
+            this.tbCustomerId.Size = new System.Drawing.Size(195, 31);
+            this.tbCustomerId.TabIndex = 47;
+            // 
+            // tbStreet
+            // 
+            this.tbStreet.Location = new System.Drawing.Point(128, 180);
+            this.tbStreet.Name = "tbStreet";
+            this.tbStreet.Size = new System.Drawing.Size(253, 31);
+            this.tbStreet.TabIndex = 61;
+            // 
+            // lblCustomerID
+            // 
+            this.lblCustomerID.AutoSize = true;
+            this.lblCustomerID.Location = new System.Drawing.Point(13, 16);
+            this.lblCustomerID.Name = "lblCustomerID";
+            this.lblCustomerID.Size = new System.Drawing.Size(107, 25);
+            this.lblCustomerID.TabIndex = 63;
+            this.lblCustomerID.Text = "CustomerID";
+            // 
+            // lblCreatedAt
+            // 
+            this.lblCreatedAt.AutoSize = true;
+            this.lblCreatedAt.Location = new System.Drawing.Point(12, 396);
+            this.lblCreatedAt.Name = "lblCreatedAt";
+            this.lblCreatedAt.Size = new System.Drawing.Size(91, 25);
+            this.lblCreatedAt.TabIndex = 64;
+            this.lblCreatedAt.Text = "CreatedAt";
+            // 
+            // dtpCreatedAt
+            // 
+            this.dtpCreatedAt.Location = new System.Drawing.Point(128, 393);
+            this.dtpCreatedAt.Name = "dtpCreatedAt";
+            this.dtpCreatedAt.Size = new System.Drawing.Size(310, 31);
+            this.dtpCreatedAt.TabIndex = 65;
             // 
             // ucregister
             // 
@@ -299,7 +341,7 @@ namespace BankAppControlLibrary
 		internal System.Windows.Forms.Label lblNr;
 		internal System.Windows.Forms.TextBox tbFirstName;
 		internal System.Windows.Forms.TextBox tbLastName;
-        internal System.Windows.Forms.TextBox tbCustomerId;
+        internal System.Windows.Forms.TextBox tbStreet;
         internal System.Windows.Forms.Label lblZipCode;
 		internal System.Windows.Forms.TextBox tbNr;
 		internal System.Windows.Forms.Label lblName;
@@ -307,7 +349,11 @@ namespace BankAppControlLibrary
 		internal System.Windows.Forms.Label lblVorname;
 		internal System.Windows.Forms.Panel pnlUserRegistration;
         private System.Windows.Forms.Button btnSearch;
-        internal System.Windows.Forms.TextBox tbStreet;
+        internal System.Windows.Forms.TextBox tbCustomerId;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblCustomerID;
+        private System.Windows.Forms.DateTimePicker dtpCreatedAt;
+        private System.Windows.Forms.Label lblCreatedAt;
     }
 }

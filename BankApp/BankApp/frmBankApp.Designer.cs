@@ -98,19 +98,17 @@ namespace BankApp
             // 
             // pnlControl
             // 
-            this.pnlControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlControl.Location = new System.Drawing.Point(24, 38);
+            this.pnlControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlControl.Location = new System.Drawing.Point(0, 24);
             this.pnlControl.Name = "pnlControl";
-            this.pnlControl.Size = new System.Drawing.Size(1275, 646);
+            this.pnlControl.Size = new System.Drawing.Size(1311, 526);
             this.pnlControl.TabIndex = 1;
             // 
             // frmBankApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1311, 696);
+            this.ClientSize = new System.Drawing.Size(1311, 550);
             this.Controls.Add(this.pnlControl);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
