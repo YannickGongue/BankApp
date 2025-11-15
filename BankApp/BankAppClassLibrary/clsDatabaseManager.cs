@@ -11,10 +11,7 @@ using System.Data;
 namespace BankAppClassLibrary
 {
     public class clsDatabaseManager
-    {      
-        private SqlConnection sqlconManager;
-        private SqlDataAdapter sdaAdapter;
-        
+    {   
         private string strConnectionString;      
         private string strQuery;
 
@@ -30,14 +27,14 @@ namespace BankAppClassLibrary
             
             DataTable dt = new DataTable();
            
-            using (this.sqlconManager = new SqlConnection(this.strConnectionString))
+            using (SqlConnection sqlconManager = new SqlConnection(this.strConnectionString))
             {
-                SqlCommand sqlcmd = new SqlCommand(this.strQuery, this.sqlconManager);
-                this.sdaAdapter = new SqlDataAdapter(sqlcmd);
+                SqlCommand sqlcmd = new SqlCommand(this.strQuery, sqlconManager);
+                SqlDataAdapter sdaAdapter = new SqlDataAdapter(sqlcmd);
                 //this.sdaAdapter.SelectCommand = new SqlCommand();
-                this.sqlconManager.Open();
+                sqlconManager.Open();
              
-                this.sdaAdapter.Fill(dt);               
+                sdaAdapter.Fill(dt);               
             }
 
             return  dt;          
@@ -45,19 +42,20 @@ namespace BankAppClassLibrary
 
         public void SaveChanges(DataSet dsDataset, string strTable)
         {
-            this.sdaAdapter = new SqlDataAdapter(this.strQuery, this.sqlconManager);
-            SqlCommandBuilder builder = new SqlCommandBuilder(this.sdaAdapter);
-            this.sdaAdapter.InsertCommand = builder.GetInsertCommand();
-            this.sdaAdapter.DeleteCommand = builder.GetDeleteCommand();
-            this.sdaAdapter.UpdateCommand = builder.GetUpdateCommand();
-            this.sdaAdapter.Update(dsDataset, strTable);
+            SqlConnection sqlconManager = new SqlConnection(this.strConnectionString);
+            SqlDataAdapter sdaAdapter = new SqlDataAdapter(this.strQuery, sqlconManager);
+            SqlCommandBuilder builder = new SqlCommandBuilder(sdaAdapter);
+            sdaAdapter.InsertCommand = builder.GetInsertCommand();
+            sdaAdapter.DeleteCommand = builder.GetDeleteCommand();
+            sdaAdapter.UpdateCommand = builder.GetUpdateCommand();
+            sdaAdapter.Update(dsDataset, strTable);
         }
 
         public void AddTransaction(Dictionary<string, object> parameters, string strProcedure)
         {
-            using (this.sqlconManager = new SqlConnection(this.strConnectionString))
+            using (SqlConnection sqlconManager = new SqlConnection(this.strConnectionString))
             {
-                SqlCommand sqlcmd = new SqlCommand(strProcedure, this.sqlconManager);
+                SqlCommand sqlcmd = new SqlCommand(strProcedure, sqlconManager);
                 sqlcmd.CommandType = CommandType.StoredProcedure;
 
                 foreach (var p in parameters)
@@ -65,7 +63,7 @@ namespace BankAppClassLibrary
                     sqlcmd.Parameters.AddWithValue(p.Key, p.Value ?? DBNull.Value);
                 }
 
-                this.sqlconManager.Open();
+                sqlconManager.Open();
                 sqlcmd.ExecuteNonQuery();
             }                        
         }
@@ -73,12 +71,12 @@ namespace BankAppClassLibrary
         public DataTable LoadBalances()
         {
             DataTable dtTable = new DataTable();
-            using (this.sqlconManager = new SqlConnection(this.strConnectionString))
+            using (SqlConnection sqlconManager = new SqlConnection(this.strConnectionString))
             {
-                SqlCommand sqlcmd = new SqlCommand(strQuery, this.sqlconManager);
-                this.sdaAdapter = new SqlDataAdapter(sqlcmd);
+                SqlCommand sqlcmd = new SqlCommand(strQuery, sqlconManager);
+                SqlDataAdapter sdaAdapter = new SqlDataAdapter(sqlcmd);
 
-                this.sdaAdapter.Fill(dtTable);
+                sdaAdapter.Fill(dtTable);
             }
  
             return dtTable;
@@ -86,11 +84,11 @@ namespace BankAppClassLibrary
 
         public void DeleteTransaction()
         {
-            using (this.sqlconManager = new SqlConnection(this.strConnectionString))
+            using (SqlConnection sqlconManager = new SqlConnection(this.strConnectionString))
             {
-                SqlCommand sqlcmd = new SqlCommand( this.strQuery, this.sqlconManager);
+                SqlCommand sqlcmd = new SqlCommand( this.strQuery, sqlconManager);
                
-                this.sqlconManager.Open();
+                sqlconManager.Open();
                 sqlcmd.ExecuteNonQuery();
             }                  
         }
