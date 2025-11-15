@@ -14,6 +14,7 @@ namespace BankAppClassLibrary
     {      
         private SqlConnection sqlconManager;
         private SqlDataAdapter sdaAdapter;
+        
         private string strConnectionString;      
         private string strQuery;
 
@@ -26,12 +27,16 @@ namespace BankAppClassLibrary
            
         public DataTable LoadInfo()
         {
+            
             DataTable dt = new DataTable();
+           
             using (this.sqlconManager = new SqlConnection(this.strConnectionString))
             {
-                this.sdaAdapter = new SqlDataAdapter();
-                this.sdaAdapter.SelectCommand = new SqlCommand(this.strQuery, this.sqlconManager);
+                SqlCommand sqlcmd = new SqlCommand(this.strQuery, this.sqlconManager);
+                this.sdaAdapter = new SqlDataAdapter(sqlcmd);
+                //this.sdaAdapter.SelectCommand = new SqlCommand();
                 this.sqlconManager.Open();
+             
                 this.sdaAdapter.Fill(dt);               
             }
 

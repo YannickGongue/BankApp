@@ -61,15 +61,15 @@ namespace BankAppControlLibrary
             string strQuerySearch = string.Format( "SELECT a.{1}, a.{2}, a.{3}, a.{4}, a.{5} " +
                                                    "FROM {0} a " +
                                                    "JOIN {6} c ON a.{7} = c.{7} " +
-                                                   "WHERE c.{7} = '{8}'",
+                                                   "WHERE c.{7} = '{8}' ",
                                                    this.dbName.STR_TBL_ACCOUNT,       
                                                    this.dbName.STR_FN_ID_ACCOUNT,      
                                                    this.dbName.STR_FN_IBAN,           
-                                                   this.dbName.STR_FN_TRANSACTION_TYPE,
+                                                   this.dbName.STR_FN_ACCOUNT_TYPE,
                                                    this.dbName.STR_FN_BALANCE,        
                                                    this.dbName.STR_FN_CREATEDAT,      
                                                    this.dbName.STR_TBL_CUSTOMER,       
-                                                   this.dbName.STR_FN_ID_CUSTOMER,                    
+                                                   this.dbName.STR_FN_ID_CUSTOMER,                                                 
                                                    this.tbCustomerID.Text );
 
             this.dbManager = new clsDatabaseManager(strQuerySearch);
