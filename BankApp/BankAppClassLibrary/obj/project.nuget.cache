@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "H1yTngb2Hv0typCjOCGE4xeauIEVbK6YAiqK3mLmMSQnCWbsMXGzYEWZ9ldnYdYwRqYjekFApDXCHyBt8gK8dQ==",
+  "dgSpecHash": "xLr0n8vR8r9QodBlNEIuifiCWSNX276iyhC9bupfN4SzrbOkICfkeLJfqYEoBP3tNTdUlyZUo97utD0Tnq4O0A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankApp\\BankApp.csproj",
+  "projectFilePath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankAppClassLibrary\\BankAppClassLibrary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vamic\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\vamic\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",

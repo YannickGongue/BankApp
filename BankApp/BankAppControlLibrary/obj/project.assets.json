@@ -669,22 +669,6 @@
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WindowsForms"
         ]
-      },
-      "BankAppControlLibrary/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "BankAppClassLibrary": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/BankAppControlLibrary.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/BankAppControlLibrary.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WindowsForms"
-        ]
       }
     }
   },
@@ -2255,17 +2239,11 @@
       "type": "project",
       "path": "../BankAppClassLibrary/BankAppClassLibrary.csproj",
       "msbuildProject": "../BankAppClassLibrary/BankAppClassLibrary.csproj"
-    },
-    "BankAppControlLibrary/1.0.0": {
-      "type": "project",
-      "path": "../BankAppControlLibrary/BankAppControlLibrary.csproj",
-      "msbuildProject": "../BankAppControlLibrary/BankAppControlLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
-      "BankAppClassLibrary >= 1.0.0",
-      "BankAppControlLibrary >= 1.0.0"
+      "BankAppClassLibrary >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2274,11 +2252,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankApp\\BankApp.csproj",
-      "projectName": "BankApp",
-      "projectPath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankApp\\BankApp.csproj",
+      "projectUniqueName": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankAppControlLibrary\\BankAppControlLibrary.csproj",
+      "projectName": "BankAppControlLibrary",
+      "projectPath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankAppControlLibrary\\BankAppControlLibrary.csproj",
       "packagesPath": "C:\\Users\\vamic\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankApp\\obj\\",
+      "outputPath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankAppControlLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\vamic\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2298,9 +2276,6 @@
           "projectReferences": {
             "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankAppClassLibrary\\BankAppClassLibrary.csproj": {
               "projectPath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankAppClassLibrary\\BankAppClassLibrary.csproj"
-            },
-            "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankAppControlLibrary\\BankAppControlLibrary.csproj": {
-              "projectPath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankAppControlLibrary\\BankAppControlLibrary.csproj"
             }
           }
         }

@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\BankAppClassLibrary\BankAppClassLibrary.csproj" />
-    <ProjectReference Include="..\..\BankAppControlLibrary\BankAppControlLibrary.csproj" />
+    <ProjectReference Include="..\BankAppClassLibrary\BankAppClassLibrary.csproj" />
+    <ProjectReference Include="..\BankAppControlLibrary\BankAppControlLibrary.csproj" />
   </ItemGroup>
 
 </Project>

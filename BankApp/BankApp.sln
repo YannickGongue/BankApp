@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankApp", "BankApp\BankApp.csproj", "{02C8CBC2-F3E2-42EE-B514-E9CDFE05F453}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAppClassLibrary", "..\BankAppClassLibrary\BankAppClassLibrary.csproj", "{E7791D8C-5683-482F-8EA4-137183179F00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAppClassLibrary", "BankAppClassLibrary\BankAppClassLibrary.csproj", "{E7791D8C-5683-482F-8EA4-137183179F00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAppControlLibrary", "..\BankAppControlLibrary\BankAppControlLibrary.csproj", "{60416E6E-481C-4D0F-AFEA-8B0C1B609D63}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAppControlLibrary", "BankAppControlLibrary\BankAppControlLibrary.csproj", "{60416E6E-481C-4D0F-AFEA-8B0C1B609D63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -652,39 +652,6 @@
         "runtime": {
           "lib/netcoreapp2.1/_._": {}
         }
-      },
-      "BankAppClassLibrary/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "Microsoft.Data.SqlClient": "6.1.3",
-          "System.Data.SqlClient": "4.9.0"
-        },
-        "compile": {
-          "bin/placeholder/BankAppClassLibrary.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/BankAppClassLibrary.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WindowsForms"
-        ]
-      },
-      "BankAppControlLibrary/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "BankAppClassLibrary": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/BankAppControlLibrary.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/BankAppControlLibrary.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WindowsForms"
-        ]
       }
     }
   },
@@ -2250,22 +2217,12 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
-    },
-    "BankAppClassLibrary/1.0.0": {
-      "type": "project",
-      "path": "../BankAppClassLibrary/BankAppClassLibrary.csproj",
-      "msbuildProject": "../BankAppClassLibrary/BankAppClassLibrary.csproj"
-    },
-    "BankAppControlLibrary/1.0.0": {
-      "type": "project",
-      "path": "../BankAppControlLibrary/BankAppControlLibrary.csproj",
-      "msbuildProject": "../BankAppControlLibrary/BankAppControlLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
-      "BankAppClassLibrary >= 1.0.0",
-      "BankAppControlLibrary >= 1.0.0"
+      "Microsoft.Data.SqlClient >= 6.1.3",
+      "System.Data.SqlClient >= 4.9.0"
     ]
   },
   "packageFolders": {
@@ -2274,11 +2231,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankApp\\BankApp.csproj",
-      "projectName": "BankApp",
-      "projectPath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankApp\\BankApp.csproj",
+      "projectUniqueName": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankAppClassLibrary\\BankAppClassLibrary.csproj",
+      "projectName": "BankAppClassLibrary",
+      "projectPath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankAppClassLibrary\\BankAppClassLibrary.csproj",
       "packagesPath": "C:\\Users\\vamic\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankApp\\obj\\",
+      "outputPath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankAppClassLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\vamic\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2295,14 +2252,7 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
-          "projectReferences": {
-            "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankAppClassLibrary\\BankAppClassLibrary.csproj": {
-              "projectPath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankAppClassLibrary\\BankAppClassLibrary.csproj"
-            },
-            "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankAppControlLibrary\\BankAppControlLibrary.csproj": {
-              "projectPath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankAppControlLibrary\\BankAppControlLibrary.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -2314,6 +2264,16 @@
     "frameworks": {
       "net5.0-windows7.0": {
         "targetAlias": "net5.0-windows",
+        "dependencies": {
+          "Microsoft.Data.SqlClient": {
+            "target": "Package",
+            "version": "[6.1.3, )"
+          },
+          "System.Data.SqlClient": {
+            "target": "Package",
+            "version": "[4.9.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
