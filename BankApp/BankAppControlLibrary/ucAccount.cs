@@ -22,9 +22,11 @@ namespace BankAppControlLibrary
             this.dbName = new clsDbTablenames();
             this.dtTable = new DataTable();
             this.dsDataset = new DataSet();
+            this.dbManager = new clsDatabaseManager(new Repositories());
+
         }
 
-           
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
            this.Visible = false;       
@@ -39,9 +41,8 @@ namespace BankAppControlLibrary
                                                        this.dbName.STR_FN_ACCOUNT_TYPE, this.dbName.STR_FN_CREATEDAT,
                                                        this.tbAccountId.Text, this.tbBalance.Text,
                                                        this.tbIban.Text, this.cbAccountType.Text, this.tbDate.Text);
-            this.dbManager = new clsDatabaseManager(strAccountRegister);
 
-            this.dbManager.SaveChanges(this.dsDataset, this.dbName.STR_TBL_ACCOUNT);
+            this.dbManager.setAllChange(this.dsDataset, this.dbName.STR_TBL_ACCOUNT, strAccountRegister);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -50,9 +51,8 @@ namespace BankAppControlLibrary
                                                      this.dbName.STR_TBL_ACCOUNT,
                                                      this.dbName.STR_FN_ID_ACCOUNT,
                                                      this.tbAccountId.Text);
-            this.dbManager = new clsDatabaseManager(strAccountDelete);
 
-            this.dbManager.SaveChanges(this.dsDataset, this.dbName.STR_TBL_ACCOUNT);
+            this.dbManager.setAllChange(this.dsDataset, this.dbName.STR_TBL_ACCOUNT, strAccountDelete);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -72,8 +72,7 @@ namespace BankAppControlLibrary
                                                    this.dbName.STR_FN_ID_CUSTOMER,                                                 
                                                    this.tbCustomerID.Text );
 
-            this.dbManager = new clsDatabaseManager(strQuerySearch);
-            this.dtTable = this.dbManager.LoadInfo();
+            this.dtTable = this.dbManager.SetAllTransaction(strQuerySearch);
             if (this.dtTable.Rows.Count > 0)
             {
                 drRow = this.dtTable.Rows[0];

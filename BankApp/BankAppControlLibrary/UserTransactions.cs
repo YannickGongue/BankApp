@@ -23,9 +23,11 @@ namespace BankAppControlLibrary
             InitializeComponent();
             this.dbName = new clsDbTablenames();
             this.dtTable = new DataTable();
+            this.dbManager = new clsDatabaseManager(new Repositories());
+
         }
 
-        
+
         private void btnNewTransactions_Click(object sender, EventArgs e)
         {
             string strOldTransactionSearch = string.Format("SELECT a.{1}, a.{2}, t.{3}, t.{4}, t.{5},  t.{6}" +
@@ -47,8 +49,7 @@ namespace BankAppControlLibrary
                                                             this.dbName.STR_FN_ID_CUSTOMER,
                                                             this.tbCustomerID.Text);
 
-            this.dbManager = new clsDatabaseManager(strOldTransactionSearch);
-            this.dtTable = this.dbManager.LoadInfo();
+            this.dtTable = this.dbManager.SetAllTransaction(strOldTransactionSearch);
             this.dgvTansactions.DataSource = this.dtTable;
         }
 
@@ -74,8 +75,7 @@ namespace BankAppControlLibrary
                                                             this.dbName.STR_FN_ID_CUSTOMER,
                                                             this.tbCustomerID.Text);
 
-            this.dbManager = new clsDatabaseManager(strOldTransactionSearch);
-            this.dtTable = this.dbManager.LoadInfo();
+            this.dtTable = this.dbManager.SetAllTransaction(strOldTransactionSearch);
             this.dgvTansactions.DataSource = this.dtTable;
         }
 
@@ -98,9 +98,7 @@ namespace BankAppControlLibrary
                                                             this.dbName.STR_TBL_CUSTOMER,                                                                                               
                                                             this.dbName.STR_FN_ID_CUSTOMER,
                                                             this.tbCustomerID.Text);
-
-            this.dbManager = new clsDatabaseManager(strAllTransactionSearch);
-            this.dtTable = this.dbManager.LoadInfo();
+            this.dtTable = this.dbManager.SetAllTransaction(strAllTransactionSearch);
             this.dgvTansactions.DataSource = this.dtTable; 
         }
 
@@ -113,10 +111,9 @@ namespace BankAppControlLibrary
                                                         this.dbName.STR_FN_IS_DELETED,
                                                         this.dbName.STR_FN_ID_TRANSACTION,
                                                         this.tbTransactionID.Text);
-            this.dbManager = new clsDatabaseManager(strDeleteTransaction);
             try
             {
-                this.dbManager.DeleteTransaction();
+                this.dbManager.DeleteTransaction(strDeleteTransaction);
                 MessageBox.Show("Transaction deleted successfully!", "OK",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -135,8 +132,7 @@ namespace BankAppControlLibrary
                                               this.dbName.STR_FN_BALANCE,
                                               this.dbName.STR_FN_ID_ACCOUNT,
                                               this.tbAccountID.Text);
-            this.dbManager = new clsDatabaseManager(strBalance);
-            this.lblDisplaySaldo.Text = this.dbManager.LoadBalances().Rows[0].ToString();
+            this.lblDisplaySaldo.Text = this.dbManager.SetAllTransaction(strBalance).Rows[0].ToString();
         }
 
         private void dgvTransactions_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -169,7 +165,6 @@ namespace BankAppControlLibrary
                 {"@Date",this.dptTransactionDate.Text },
             };
 
-            this.dbManager = new clsDatabaseManager(strDefault);
             try
             {              
                 this.dbManager.AddTransaction(this.dTransactions, strProcedure);

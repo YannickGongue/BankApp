@@ -55,7 +55,6 @@ C:\Users\vamic\source\repos\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows
 C:\Users\vamic\source\repos\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\vamic\source\repos\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\BankAppClassLibrary.csproj.CopyComplete
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\BankAppClassLibrary.exe
-C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\BankAppClassLibrary.dll.config
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\BankAppClassLibrary.deps.json
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\BankAppClassLibrary.runtimeconfig.json
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\BankAppClassLibrary.runtimeconfig.dev.json
@@ -98,7 +97,6 @@ C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\BankAppClassLibrary.csprojAssemblyReference.cache
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\BankAppClassLibrary.Form1.resources
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\BankAppClassLibrary.csproj.GenerateResource.cache
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\BankAppClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
@@ -110,3 +108,4 @@ C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\ref\BankAppClassLibrary.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\BankAppClassLibrary.pdb
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\BankAppClassLibrary.genruntimeconfig.cache
+C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\BankAppClassLibrary.csproj.AssemblyReference.cache

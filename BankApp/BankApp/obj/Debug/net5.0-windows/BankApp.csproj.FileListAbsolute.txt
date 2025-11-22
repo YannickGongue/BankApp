@@ -5,7 +5,6 @@ C:\Users\vamic\source\repos\BankApp\BankApp\BankApp\bin\Debug\net5.0-windows\Ban
 C:\Users\vamic\source\repos\BankApp\BankApp\BankApp\bin\Debug\net5.0-windows\BankApp.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankApp\bin\Debug\net5.0-windows\ref\BankApp.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankApp\bin\Debug\net5.0-windows\BankApp.pdb
-C:\Users\vamic\source\repos\BankApp\BankApp\BankApp\obj\Debug\net5.0-windows\BankApp.csprojAssemblyReference.cache
 C:\Users\vamic\source\repos\BankApp\BankApp\BankApp\obj\Debug\net5.0-windows\BankApp.csproj.GenerateResource.cache
 C:\Users\vamic\source\repos\BankApp\BankApp\BankApp\obj\Debug\net5.0-windows\BankApp.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\vamic\source\repos\BankApp\BankApp\BankApp\obj\Debug\net5.0-windows\BankApp.AssemblyInfoInputs.cache
@@ -65,5 +64,5 @@ C:\Users\vamic\source\repos\BankApp\BankApp\BankApp\bin\Debug\net5.0-windows\Sys
 C:\Users\vamic\source\repos\BankApp\BankApp\BankApp\bin\Debug\net5.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankApp\bin\Debug\net5.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankApp\bin\Debug\net5.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\vamic\source\repos\BankApp\BankApp\BankApp\bin\Debug\net5.0-windows\BankAppClassLibrary.dll.config
 C:\Users\vamic\source\repos\BankApp\BankApp\BankApp\bin\Debug\net5.0-windows\BankApp.dll.config
+C:\Users\vamic\source\repos\BankApp\BankApp\BankApp\obj\Debug\net5.0-windows\BankApp.csproj.AssemblyReference.cache
