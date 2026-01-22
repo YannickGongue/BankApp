@@ -16,27 +16,16 @@ namespace BankAppClassLibrary
     {
               
         private dbBankAppContext _dbContext;
-        private List<MCustomers> ltCustomers;
 
         public Repositories( dbBankAppContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        //public SqlConnection GetConnection()
-        //{
-        //    SqlConnection sqlconManager = this._factory.CreateConnection();
-        //    return sqlconManager;
-        //}
-
         public DataTable GetAllTRansactions(string strQuery)
         {
             DataTable dt = new DataTable();           
-            //SqlCommand sqlcmd = new SqlCommand(strQuery, this.GetConnection());
-            //SqlDataAdapter sdaAdapter = new SqlDataAdapter(sqlcmd);
-            //this.GetConnection().Open();
-            //sdaAdapter.Fill(dt);
-            
+                 
             return dt;
         }
 
@@ -56,6 +45,20 @@ namespace BankAppClassLibrary
                      .ToList();
         }
 
+        public MAccounts AddAccounts(MAccounts mAccount)
+        {
+            this._dbContext.Account.Add(mAccount);
+            this._dbContext.SaveChanges();
+
+            return mAccount;
+        }
+
+        public List<MAccounts> GetAccount(string strId)
+        {
+            return _dbContext.Account
+                     .Where(a => a.AccountId == strId)
+                     .ToList();
+        }
 
         public void AddTransaction(Dictionary<string, object> parameters, string strProcedure)
         {
@@ -73,8 +76,10 @@ namespace BankAppClassLibrary
         }
 
         
-        public void DeleteTransaction(string strQuery)
-        {       
+        public void DeleteTransaction(string strId)
+        {
+            //this._dbContext.Account.(mAccount);
+            //this._dbContext.SaveChanges();
             //SqlCommand sqlcmd = new SqlCommand(strQuery, this.GetConnection());
             //this.GetConnection().Open();
             // sqlcmd.ExecuteNonQuery();      

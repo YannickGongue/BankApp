@@ -8,21 +8,17 @@ namespace BankAppControlLibrary
 {
     public partial class ucAccount : UserControl
     {
-       
-        //private clsDbContext dbName;
-        
-        private clsDatabaseManager dbManager;
+               
         private DataTable dtTable;
-        //private readonly IConnectionFactory _factory;
-        //private readonly ILogger<Repositories> _logger;
+        private IRepository _irepo;
+        private MAccounts _mAccount;
 
-        public ucAccount()
+
+        public ucAccount(IRepository irepo, MAccounts mAccount)
         {
             InitializeComponent();
-            
-            //this.dbName = new clsDbContext();
-            this.dtTable = new DataTable();
-            //this.dbManager = new clsDatabaseManager(new Repositories(this._factory, this._logger));
+            this._irepo = irepo;
+            this._mAccount = mAccount;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -32,15 +28,13 @@ namespace BankAppControlLibrary
 
         private void btnAdd_click(object sender, EventArgs e)
         {
-            //string strAccountRegister = string.Format( "INSERT INTO {0} ({1},{2},{3},{4},{5})" +
-            //                                           "VALUES('{6}','{7}','{8}','{9}','{10}')",
-            //                                           this.dbName.STR_TBL_ACCOUNT, this.dbName.STR_FN_ID_CUSTOMER,
-            //                                           this.dbName.STR_FN_BALANCE, this.dbName.STR_FN_IBAN,
-            //                                           this.dbName.STR_FN_ACCOUNT_TYPE, this.dbName.STR_FN_CREATEDAT,
-            //                                           this.tbAccountId.Text, this.tbBalance.Text,
-            //                                           this.tbIban.Text, this.cbAccountType.Text, this.tbDate.Text);
+            this._mAccount.AccountId = this.tbAccountId.Text;
+            this._mAccount.AccountType = this.cbAccountType.Text;
+            this._mAccount.Balance = this.tbBalance.Text;
+            this._mAccount.CreatedAt = this.tbDate.Text;
+            this._mAccount.Iban = this.tbIban.Text;
 
-            //this.dbManager.setAllChange(this.dsDataset, this.dbName.STR_TBL_ACCOUNT, strAccountRegister);
+            this._irepo.AddAccounts(this._mAccount);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

@@ -9,13 +9,12 @@ namespace BankAppClassLibrary
 {
      public interface IRepository
      {
-        //SqlConnection GetConnection();
         //void GetAllTRansactions(clsTransactions Transactions);
         MCustomers AddCustomers(MCustomers customers);
         List<MCustomers> GetCustomers(string strId);
 
-        //clsAccounts AddAccounts(clsAccounts Accounts);
-        //clsAccounts GetAccounts(string strId);
+        MAccounts AddAccounts(MAccounts Accounts);
+        List<MAccounts> GetAccount(string strId);
         //clsTransactions AddTransaction(Dictionary<string, object> parameters, string strProcedure);
         //void DeleteTransaction(string strid);
      }

@@ -9,42 +9,9 @@ using Microsoft.EntityFrameworkCore;
 namespace BankAppClassLibrary
 {
     public class dbBankAppContext : DbContext
-    {
-        // LOKALE KONSTANTEN VARIABLEN DEKLARIEREN:
+    {   
 
-        //Tabellename Account
-        //public string STR_TBL_ACCOUNT = "Accounts";
-        //public string STR_TBL_CUSTOMER = "Customers";
-        //public string STR_TBL_TRANSACTIONS = "Transactions";
-        //public string STR_TBL_ACCOUNT_BALANCES = "AcountBalances";
-
-        // Spaltename der Datenbank.
-        //public string STR_FN_ID_ACCOUNT = "AccountID";
-        //public string STR_FN_ID_CUSTOMER = "CustomerID";
-        //public string STR_FN_IBAN = "IBAN";
-        //public string STR_FN_ACCOUNT_TYPE = "AccountType";
-        //public string STR_FN_BALANCE = "BALANCE";
-        //public string STR_FN_CREATEDAT = "CreatedAt";
-        //public string STR_FN_FIRSTNAME = "FirstName";
-        //public string STR_FN_LASTNAME = "LastName";
-        //public string STR_FN_EMAIL = "Email";
-        //public string STR_FN_PHONE = "Phone";
-        //public string STR_FN_STREET = "Street";
-        //public string STR_FN_HOUSNUMBER = "Housenumber";
-        //public string STR_FN_CITY = "City";    
-        //public string STR_FN_ID_TRANSACTION = "TransactionID";     
-        //public string STR_FN_ZIPCODE = "ZipCode";
-        //public string STR_FN_TRANSACTION_TYPE = "TransactionType";
-        //public string STR_FN_AMOUNT = "Amount";
-        //public string STR_FN_TRANSACTION_DATE = "TransactionDate";
-        //public string STR_FN_TRANSACTION_NR= "TransactionNr";
-        //public string STR_PURPOSE = "Purpose";
-        //public string STR_FN_IS_DELETED = "IsDeleted";
-
-        public dbBankAppContext(DbContextOptions<dbBankAppContext> BankDB) : base(BankDB)
-        {
-            
-        }
+        public dbBankAppContext(DbContextOptions<dbBankAppContext> BankDB) : base(BankDB){}
 
         public DbSet<MCustomers> Customer { get; set; }
         public DbSet<MAccounts> Account { get; set; }

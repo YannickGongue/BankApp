@@ -16,11 +16,15 @@ namespace BankApp
     public partial class frmBankApp : Form
     {
 		private IRepository _Irepo;
+		private MAccounts _mAcount;
+		private MCustomers _mCustomer;
 		
-		public frmBankApp( IRepository irepo)
+		public frmBankApp( IRepository irepo, MCustomers mCustomer, MAccounts mAccount)
         {
             InitializeComponent();
 			this._Irepo = irepo;
+			this._mAcount = mAccount;
+			this._mCustomer = mCustomer;
 					
 		}
 
@@ -34,7 +38,7 @@ namespace BankApp
 			ucCustomer ucrigRegister;     // Benutzersteuerelement zur Registrierung des Users.
 
 			// Steuerelement instanzieren.
-			ucrigRegister = new ucCustomer(this._Irepo);
+			ucrigRegister = new ucCustomer(this._Irepo, this._mCustomer);
 			this.pnlControl.Visible = true;
 			
 			// Fügt der Steuerelementauflistung das angegebene Steuerelement hinzu.
@@ -51,7 +55,7 @@ namespace BankApp
 			ucAccount UserAccount;      // Benutzersteuertelement zur Anmeldung im Generator.
 
 			// Steuerelement instanzieren.
-			UserAccount = new ucAccount();
+			UserAccount = new ucAccount(this._Irepo, this._mAcount);
 
 			pnlControl.Visible = true;
 			// Fügt der Steuerelementauflistung das angegebene Steuerelement hinzu.
@@ -69,7 +73,7 @@ namespace BankApp
 			ucAccount ucProfil;     // Benutzersteuerelement zum Anzeigen des Profils des Users.
 
 			// Steuerelement instanzieren.
-			ucProfil = new ucAccount();
+			ucProfil = new ucAccount(this._Irepo, this._mAcount);
 			pnlControl.Visible = true;
 			//pnlProfil.Visible = true;
 			// Fügt der Steuerelementauflistung das angegebene Steuerelement hinzu.
