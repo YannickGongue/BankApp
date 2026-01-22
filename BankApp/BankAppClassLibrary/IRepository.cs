@@ -1,5 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -10,10 +9,14 @@ namespace BankAppClassLibrary
 {
      public interface IRepository
      {
-        SqlConnection GetConnection();
-        DataTable GetAllTRansactions(string strQuery);
-        void GetAllChanges(DataSet dsDataset, string strTable, string strQuery);
-        void AddTransaction(Dictionary<string, object> parameters, string strProcedure);
-        void DeleteTransaction(string strQuery);
+        //SqlConnection GetConnection();
+        //void GetAllTRansactions(clsTransactions Transactions);
+        MCustomers AddCustomers(MCustomers customers);
+        List<MCustomers> GetCustomers(string strId);
+
+        //clsAccounts AddAccounts(clsAccounts Accounts);
+        //clsAccounts GetAccounts(string strId);
+        //clsTransactions AddTransaction(Dictionary<string, object> parameters, string strProcedure);
+        //void DeleteTransaction(string strid);
      }
 }

@@ -1,66 +1,83 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Text;
+
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BankAppClassLibrary
 {
-    public class Repositories : IRepository
+    public class Repositories :  IRepository 
     {
-         string strConnectionString;
-        public SqlConnection GetConnection()
+              
+        private dbBankAppContext _dbContext;
+        private List<MCustomers> ltCustomers;
+
+        public Repositories( dbBankAppContext dbContext)
         {
-            this.strConnectionString = ConfigurationManager.ConnectionStrings["BankConnectionString"].ConnectionString;
-            SqlConnection sqlconManager = new SqlConnection(this.strConnectionString);
-            return sqlconManager;
+            _dbContext = dbContext;
         }
+
+        //public SqlConnection GetConnection()
+        //{
+        //    SqlConnection sqlconManager = this._factory.CreateConnection();
+        //    return sqlconManager;
+        //}
 
         public DataTable GetAllTRansactions(string strQuery)
         {
             DataTable dt = new DataTable();           
-            SqlCommand sqlcmd = new SqlCommand(strQuery, this.GetConnection());
-            SqlDataAdapter sdaAdapter = new SqlDataAdapter(sqlcmd);
-            this.GetConnection().Open();
-            sdaAdapter.Fill(dt);
+            //SqlCommand sqlcmd = new SqlCommand(strQuery, this.GetConnection());
+            //SqlDataAdapter sdaAdapter = new SqlDataAdapter(sqlcmd);
+            //this.GetConnection().Open();
+            //sdaAdapter.Fill(dt);
             
             return dt;
         }
 
-        public void GetAllChanges(DataSet dsDataset, string strTable, string strQuery)
+        public MCustomers AddCustomers(MCustomers customers)
         {
-            SqlDataAdapter sdaAdapter = new SqlDataAdapter(strQuery, this.GetConnection());
-            SqlCommandBuilder builder = new SqlCommandBuilder(sdaAdapter);
-            sdaAdapter.InsertCommand = builder.GetInsertCommand();
-            sdaAdapter.DeleteCommand = builder.GetDeleteCommand();
-            sdaAdapter.UpdateCommand = builder.GetUpdateCommand();
-            sdaAdapter.Update(dsDataset, strTable);
+           
+            this._dbContext.Customer.Add(customers);
+            this._dbContext.SaveChanges();
+
+            return customers;
         }
+
+        public List<MCustomers> GetCustomers(string strId)
+        {
+            return _dbContext.Customer
+                     .Where(c => c.CustomerId == strId)
+                     .ToList();
+        }
+
 
         public void AddTransaction(Dictionary<string, object> parameters, string strProcedure)
         {
             
-                SqlCommand sqlcmd = new SqlCommand(strProcedure, this.GetConnection());
-                sqlcmd.CommandType = CommandType.StoredProcedure;
+                //SqlCommand sqlcmd = new SqlCommand(strProcedure, this.GetConnection());
+                //sqlcmd.CommandType = CommandType.StoredProcedure;
 
-                foreach (var p in parameters)
-                {
-                    sqlcmd.Parameters.AddWithValue(p.Key, p.Value ?? DBNull.Value);
-                }
+                //foreach (var p in parameters)
+                //{
+                //    sqlcmd.Parameters.AddWithValue(p.Key, p.Value ?? DBNull.Value);
+                //}
 
-                this.GetConnection().Open();
-                sqlcmd.ExecuteNonQuery();            
+                //this.GetConnection().Open();
+                //sqlcmd.ExecuteNonQuery();            
         }
 
         
         public void DeleteTransaction(string strQuery)
         {       
-            SqlCommand sqlcmd = new SqlCommand(strQuery, this.GetConnection());
-            this.GetConnection().Open();
-             sqlcmd.ExecuteNonQuery();      
+            //SqlCommand sqlcmd = new SqlCommand(strQuery, this.GetConnection());
+            //this.GetConnection().Open();
+            // sqlcmd.ExecuteNonQuery();      
         }
     }
 }

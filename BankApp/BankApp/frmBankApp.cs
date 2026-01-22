@@ -9,15 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BankAppControlLibrary;
 using BankAppClassLibrary;
+using Microsoft.Extensions.Logging;
 
 namespace BankApp
 {
     public partial class frmBankApp : Form
     {
-        public frmBankApp()
+		private IRepository _Irepo;
+		
+		public frmBankApp( IRepository irepo)
         {
             InitializeComponent();
-        }
+			this._Irepo = irepo;
+					
+		}
 
 		/// <summary>
 		///  Durch dieser Ereignis kann  der Benutzer sich registrieren.
@@ -29,7 +34,7 @@ namespace BankApp
 			ucCustomer ucrigRegister;     // Benutzersteuerelement zur Registrierung des Users.
 
 			// Steuerelement instanzieren.
-			ucrigRegister = new ucCustomer();
+			ucrigRegister = new ucCustomer(this._Irepo);
 			this.pnlControl.Visible = true;
 			
 			// Fügt der Steuerelementauflistung das angegebene Steuerelement hinzu.
@@ -69,7 +74,6 @@ namespace BankApp
 			//pnlProfil.Visible = true;
 			// Fügt der Steuerelementauflistung das angegebene Steuerelement hinzu.
 			clsUserControl.ShowUserControl(ucProfil, pnlControl);
-
 		}
 
 		private void tsmuiTransactions_click(object sender, EventArgs e)
@@ -84,7 +88,5 @@ namespace BankApp
 			// Fügt der Steuerelementauflistung das angegebene Steuerelement hinzu.
 			clsUserControl.ShowUserControl(ucTransactions, pnlControl);
 		}
-
-
 	}
 }

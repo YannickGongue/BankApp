@@ -2,30 +2,28 @@
 using System.Data;
 using System.Windows.Forms;
 using BankAppClassLibrary;
-
+using Microsoft.Extensions.Logging;
 
 namespace BankAppControlLibrary
 {
     public partial class ucAccount : UserControl
     {
        
-        private clsDbTablenames dbName;
+        //private clsDbContext dbName;
         
         private clsDatabaseManager dbManager;
         private DataTable dtTable;
-        private DataSet dsDataset;
+        //private readonly IConnectionFactory _factory;
+        //private readonly ILogger<Repositories> _logger;
 
         public ucAccount()
         {
             InitializeComponent();
             
-            this.dbName = new clsDbTablenames();
+            //this.dbName = new clsDbContext();
             this.dtTable = new DataTable();
-            this.dsDataset = new DataSet();
-            this.dbManager = new clsDatabaseManager(new Repositories());
-
+            //this.dbManager = new clsDatabaseManager(new Repositories(this._factory, this._logger));
         }
-
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -34,54 +32,54 @@ namespace BankAppControlLibrary
 
         private void btnAdd_click(object sender, EventArgs e)
         {
-            string strAccountRegister = string.Format( "INSERT INTO {0} ({1},{2},{3},{4},{5})" +
-                                                       "VALUES('{6}','{7}','{8}','{9}','{10}')",
-                                                       this.dbName.STR_TBL_ACCOUNT, this.dbName.STR_FN_ID_CUSTOMER,
-                                                       this.dbName.STR_FN_BALANCE, this.dbName.STR_FN_IBAN,
-                                                       this.dbName.STR_FN_ACCOUNT_TYPE, this.dbName.STR_FN_CREATEDAT,
-                                                       this.tbAccountId.Text, this.tbBalance.Text,
-                                                       this.tbIban.Text, this.cbAccountType.Text, this.tbDate.Text);
+            //string strAccountRegister = string.Format( "INSERT INTO {0} ({1},{2},{3},{4},{5})" +
+            //                                           "VALUES('{6}','{7}','{8}','{9}','{10}')",
+            //                                           this.dbName.STR_TBL_ACCOUNT, this.dbName.STR_FN_ID_CUSTOMER,
+            //                                           this.dbName.STR_FN_BALANCE, this.dbName.STR_FN_IBAN,
+            //                                           this.dbName.STR_FN_ACCOUNT_TYPE, this.dbName.STR_FN_CREATEDAT,
+            //                                           this.tbAccountId.Text, this.tbBalance.Text,
+            //                                           this.tbIban.Text, this.cbAccountType.Text, this.tbDate.Text);
 
-            this.dbManager.setAllChange(this.dsDataset, this.dbName.STR_TBL_ACCOUNT, strAccountRegister);
+            //this.dbManager.setAllChange(this.dsDataset, this.dbName.STR_TBL_ACCOUNT, strAccountRegister);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string strAccountDelete = string.Format( "DELETE FROM {0} WHERE {1} = '{2}'",
-                                                     this.dbName.STR_TBL_ACCOUNT,
-                                                     this.dbName.STR_FN_ID_ACCOUNT,
-                                                     this.tbAccountId.Text);
+            //string strAccountDelete = string.Format( "DELETE FROM {0} WHERE {1} = '{2}'",
+            //                                         this.dbName.STR_TBL_ACCOUNT,
+            //                                         this.dbName.STR_FN_ID_ACCOUNT,
+            //                                         this.tbAccountId.Text);
 
-            this.dbManager.setAllChange(this.dsDataset, this.dbName.STR_TBL_ACCOUNT, strAccountDelete);
+            //this.dbManager.setAllChange(this.dsDataset, this.dbName.STR_TBL_ACCOUNT, strAccountDelete);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            DataRow drRow;
-            string strQuerySearch = string.Format( "SELECT a.{1}, a.{2}, a.{3}, a.{4}, a.{5} " +
-                                                   "FROM {0} a " +
-                                                   "JOIN {6} c ON a.{7} = c.{7} " +
-                                                   "WHERE c.{7} = '{8}' ",
-                                                   this.dbName.STR_TBL_ACCOUNT,       
-                                                   this.dbName.STR_FN_ID_ACCOUNT,      
-                                                   this.dbName.STR_FN_IBAN,           
-                                                   this.dbName.STR_FN_ACCOUNT_TYPE,
-                                                   this.dbName.STR_FN_BALANCE,        
-                                                   this.dbName.STR_FN_CREATEDAT,      
-                                                   this.dbName.STR_TBL_CUSTOMER,       
-                                                   this.dbName.STR_FN_ID_CUSTOMER,                                                 
-                                                   this.tbCustomerID.Text );
+            //DataRow drRow;
+            //string strQuerySearch = string.Format( "SELECT a.{1}, a.{2}, a.{3}, a.{4}, a.{5} " +
+            //                                       "FROM {0} a " +
+            //                                       "JOIN {6} c ON a.{7} = c.{7} " +
+            //                                       "WHERE c.{7} = '{8}' ",
+            //                                       this.dbName.STR_TBL_ACCOUNT,       
+            //                                       this.dbName.STR_FN_ID_ACCOUNT,      
+            //                                       this.dbName.STR_FN_IBAN,           
+            //                                       this.dbName.STR_FN_ACCOUNT_TYPE,
+            //                                       this.dbName.STR_FN_BALANCE,        
+            //                                       this.dbName.STR_FN_CREATEDAT,      
+            //                                       this.dbName.STR_TBL_CUSTOMER,       
+            //                                       this.dbName.STR_FN_ID_CUSTOMER,                                                 
+            //                                       this.tbCustomerID.Text );
 
-            this.dtTable = this.dbManager.SetAllTransaction(strQuerySearch);
-            if (this.dtTable.Rows.Count > 0)
-            {
-                drRow = this.dtTable.Rows[0];
-                this.tbAccountId.Text = drRow[1].ToString();
-                this.tbIban.Text = drRow[2].ToString();
-                this.cbAccountType.Text = drRow[3].ToString();
-                this.tbBalance.Text = drRow[4].ToString();
-                this.tbDate.Text = drRow[5].ToString();               
-            }
+            //this.dtTable = this.dbManager.SetAllTransaction(strQuerySearch);
+            //if (this.dtTable.Rows.Count > 0)
+            //{
+            //    drRow = this.dtTable.Rows[0];
+            //    this.tbAccountId.Text = drRow[1].ToString();
+            //    this.tbIban.Text = drRow[2].ToString();
+            //    this.cbAccountType.Text = drRow[3].ToString();
+            //    this.tbBalance.Text = drRow[4].ToString();
+            //    this.tbDate.Text = drRow[5].ToString();               
+            //}
         }
     }
 }
