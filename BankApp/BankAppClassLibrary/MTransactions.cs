@@ -10,7 +10,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BankAppClassLibrary
 {
-    [Table("Transactions", Schema = "dbo")]
 
     public class MTransactions
     {

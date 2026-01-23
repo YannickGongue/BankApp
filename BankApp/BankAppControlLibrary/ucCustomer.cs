@@ -10,7 +10,6 @@ namespace BankAppControlLibrary
 {
     public partial class ucCustomer : UserControl
     {
-        private DataTable dtTable;
         private MCustomers _mCustomers;
         private IRepository _irepo;
 
@@ -23,18 +22,15 @@ namespace BankAppControlLibrary
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-           
-           
+                     
         }
 
-        private void btnSearch_click(object sender, EventArgs e)
+        private async void btnSearch_click(object sender, EventArgs e)
         {
-
             List<MCustomers> ltCustomers = new List<MCustomers>();
-            ltCustomers = this._irepo.GetCustomers(this.tbCustomerId.Text.ToString());
+            ltCustomers = await this._irepo.GetCustomers(this.tbCustomerId.Text.ToString());
             if (ltCustomers.Count > 0)
             {
-
                 this.tbFirstName.Text = ltCustomers[0].FirstName.ToString();
                 this.tbLastName.Text = ltCustomers[0].LastName.ToString();
                 this.tbEmail.Text = ltCustomers[0].Email.ToString();
@@ -47,7 +43,7 @@ namespace BankAppControlLibrary
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private async void btnAdd_Click(object sender, EventArgs e)
         {
 
             this._mCustomers.FirstName = this.tbFirstName.Text;
@@ -61,7 +57,9 @@ namespace BankAppControlLibrary
             this._mCustomers.Phone = this.tbTelephon.Text;
             this._mCustomers.CustomerId = this.tbCustomerId.Text;
 
-            this._irepo.AddCustomers(_mCustomers);
+           await this._irepo.AddCustomers(_mCustomers);
+            MessageBox.Show("Customer has saved");
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

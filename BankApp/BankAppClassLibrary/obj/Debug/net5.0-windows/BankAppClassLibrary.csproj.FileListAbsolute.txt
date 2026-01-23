@@ -27,3 +27,4 @@ C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\Microsoft.Extensions.Logging.dll
+C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\BankAppClassLibrary.csproj.AssemblyReference.cache

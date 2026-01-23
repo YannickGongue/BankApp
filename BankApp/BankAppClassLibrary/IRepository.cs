@@ -10,11 +10,11 @@ namespace BankAppClassLibrary
      public interface IRepository
      {
         //void GetAllTRansactions(clsTransactions Transactions);
-        MCustomers AddCustomers(MCustomers customers);
-        List<MCustomers> GetCustomers(string strId);
+        Task<MCustomers> AddCustomers(MCustomers customers);
+        Task<List<MCustomers>> GetCustomers(string strId);
 
-        MAccounts AddAccounts(MAccounts Accounts);
-        List<MAccounts> GetAccount(string strId);
+        Task<MAccounts> AddAccounts(MAccounts Accounts);
+        Task<List<MAccounts>> GetAccount(string strId);
         //clsTransactions AddTransaction(Dictionary<string, object> parameters, string strProcedure);
         //void DeleteTransaction(string strid);
      }

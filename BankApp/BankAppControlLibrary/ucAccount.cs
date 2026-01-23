@@ -9,7 +9,6 @@ namespace BankAppControlLibrary
     public partial class ucAccount : UserControl
     {
                
-        private DataTable dtTable;
         private IRepository _irepo;
         private MAccounts _mAccount;
 

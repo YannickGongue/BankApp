@@ -29,35 +29,35 @@ namespace BankAppClassLibrary
             return dt;
         }
 
-        public MCustomers AddCustomers(MCustomers customers)
+        public async Task<MCustomers> AddCustomers(MCustomers customers)
         {
            
             this._dbContext.Customer.Add(customers);
-            this._dbContext.SaveChanges();
+            await this._dbContext.SaveChangesAsync();
 
             return customers;
         }
 
-        public List<MCustomers> GetCustomers(string strId)
+        public async Task<List<MCustomers>> GetCustomers(string strId)
         {
-            return _dbContext.Customer
+            return await _dbContext.Customer
                      .Where(c => c.CustomerId == strId)
-                     .ToList();
+                     .ToListAsync();
         }
 
-        public MAccounts AddAccounts(MAccounts mAccount)
+        public async Task<MAccounts> AddAccounts(MAccounts mAccount)
         {
             this._dbContext.Account.Add(mAccount);
-            this._dbContext.SaveChanges();
+            await this._dbContext.SaveChangesAsync();
 
             return mAccount;
         }
 
-        public List<MAccounts> GetAccount(string strId)
+        public async Task<List<MAccounts>> GetAccount(string strId)
         {
-            return _dbContext.Account
+            return await _dbContext.Account
                      .Where(a => a.AccountId == strId)
-                     .ToList();
+                     .ToListAsync();
         }
 
         public void AddTransaction(Dictionary<string, object> parameters, string strProcedure)
