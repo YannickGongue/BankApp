@@ -7,7 +7,6 @@ C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\bin\Debug\net5
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\bin\Debug\net5.0-windows\BankAppControlLibrary.runtimeconfig.json
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\bin\Debug\net5.0-windows\BankAppControlLibrary.runtimeconfig.dev.json
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\bin\Debug\net5.0-windows\BankAppControlLibrary.dll
-C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\bin\Debug\net5.0-windows\ref\BankAppControlLibrary.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\bin\Debug\net5.0-windows\BankAppControlLibrary.pdb
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\bin\Debug\net5.0-windows\EntityFramework.SqlServer.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\bin\Debug\net5.0-windows\EntityFramework.dll
@@ -34,7 +33,6 @@ C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\obj\Debug\net5
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\obj\Debug\net5.0-windows\BankAppControlLibrary.AssemblyInfoInputs.cache
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\obj\Debug\net5.0-windows\BankAppControlLibrary.AssemblyInfo.cs
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\obj\Debug\net5.0-windows\BankAppControlLibrary.csproj.CoreCompileInputs.cache
-C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\obj\Debug\net5.0-windows\BankAppControlLibrary.csproj.CopyComplete
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\obj\Debug\net5.0-windows\BankAppControlLibrary.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\obj\Debug\net5.0-windows\ref\BankAppControlLibrary.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\obj\Debug\net5.0-windows\BankAppControlLibrary.pdb
@@ -59,3 +57,6 @@ C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\bin\Debug\net5
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\bin\Debug\net5.0-windows\runtimes\win\lib\netstandard2.0\System.Security.AccessControl.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\bin\Debug\net5.0-windows\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp3.1\System.Windows.Extensions.dll
+C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\obj\Debug\net5.0-windows\BankAppControlLibrary.sourcelink.json
+C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\obj\Debug\net5.0-windows\BankAppC.0C2FDE5F.Up2Date
+C:\Users\vamic\source\repos\BankApp\BankApp\BankAppControlLibrary\obj\Debug\net5.0-windows\refint\BankAppControlLibrary.dll

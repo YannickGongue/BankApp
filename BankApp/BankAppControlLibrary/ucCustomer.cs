@@ -45,20 +45,28 @@ namespace BankAppControlLibrary
 
         private async void btnAdd_Click(object sender, EventArgs e)
         {
+            try
+            {
+                this._mCustomers.FirstName = this.tbFirstName.Text;
+                this._mCustomers.LastName = this.tbLastName.Text;
+                this._mCustomers.street = this.tbStreet.Text;
+                this._mCustomers.Housenumber = this.tbNr.Text;
+                this._mCustomers.ZipCode = this.tbPlz.Text;
+                this._mCustomers.City = this.tbCity.Text;
+                this._mCustomers.Createdat = this.dtpCreatedAt.Value.ToString();
+                this._mCustomers.Email = this.tbEmail.Text;
+                this._mCustomers.Phone = this.tbTelephon.Text;
+                this._mCustomers.CustomerId = this.tbCustomerId.Text;
 
-            this._mCustomers.FirstName = this.tbFirstName.Text;
-            this._mCustomers.LastName = this.tbLastName.Text;
-            this._mCustomers.street = this.tbStreet.Text;
-            this._mCustomers.Housenumber = this.tbNr.Text;
-            this._mCustomers.ZipCode = this.tbPlz.Text;
-            this._mCustomers.City = this.tbCity.Text;
-            this._mCustomers.Createdat = this.dtpCreatedAt.Value.ToString();
-            this._mCustomers.Email = this.tbEmail.Text;
-            this._mCustomers.Phone = this.tbTelephon.Text;
-            this._mCustomers.CustomerId = this.tbCustomerId.Text;
+                await this._irepo.AddCustomers(_mCustomers);
+                MessageBox.Show("Customer information are saved");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
 
-           await this._irepo.AddCustomers(_mCustomers);
-            MessageBox.Show("Customer has saved");
+            }
+
 
         }
 

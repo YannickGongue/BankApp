@@ -61,8 +61,7 @@ namespace BankAppClassLibrary
         }
 
         public void AddTransaction(Dictionary<string, object> parameters, string strProcedure)
-        {
-            
+        {           
                 //SqlCommand sqlcmd = new SqlCommand(strProcedure, this.GetConnection());
                 //sqlcmd.CommandType = CommandType.StoredProcedure;
 

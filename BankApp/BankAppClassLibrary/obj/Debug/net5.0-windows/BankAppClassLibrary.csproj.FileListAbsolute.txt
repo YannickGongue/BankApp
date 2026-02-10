@@ -3,7 +3,6 @@ C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\BankAppClassLibrary.runtimeconfig.json
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\BankAppClassLibrary.runtimeconfig.dev.json
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\BankAppClassLibrary.dll
-C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\ref\BankAppClassLibrary.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\BankAppClassLibrary.pdb
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\Microsoft.Extensions.Caching.Memory.dll
@@ -18,7 +17,6 @@ C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\BankAppClassLibrary.AssemblyInfoInputs.cache
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\BankAppClassLibrary.AssemblyInfo.cs
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\BankAppClassLibrary.csproj.CoreCompileInputs.cache
-C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\BankAppClassLibrary.csproj.CopyComplete
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\BankAppClassLibrary.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\ref\BankAppClassLibrary.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\BankAppClassLibrary.pdb
@@ -28,3 +26,6 @@ C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\bin\Debug\net5.0-windows\Microsoft.Extensions.Logging.dll
 C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\BankAppClassLibrary.csproj.AssemblyReference.cache
+C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\BankAppClassLibrary.sourcelink.json
+C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\BankAppC.495E6D84.Up2Date
+C:\Users\vamic\source\repos\BankApp\BankApp\BankAppClassLibrary\obj\Debug\net5.0-windows\refint\BankAppClassLibrary.dll
