@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{02C8CBC2-F3E2-42EE-B514-E9CDFE05F453}|BankApp\\BankApp.csproj|c:\\users\\vamic\\source\\repos\\bankapp\\bankapp\\bankapp\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{02C8CBC2-F3E2-42EE-B514-E9CDFE05F453}|BankApp\\BankApp.csproj|solutionrelative:bankapp\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E7791D8C-5683-482F-8EA4-137183179F00}|BankAppClassLibrary\\BankAppClassLibrary.csproj|c:\\users\\vamic\\source\\repos\\bankapp\\bankapp\\bankappclasslibrary\\repositories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E7791D8C-5683-482F-8EA4-137183179F00}|BankAppClassLibrary\\BankAppClassLibrary.csproj|solutionrelative:bankappclasslibrary\\repositories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,6 +27,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankApp\\App.config",
+              "RelativeDocumentMoniker": "BankApp\\App.config",
+              "ToolTip": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankApp\\App.config",
+              "RelativeToolTip": "BankApp\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-01-25T11:38:58.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Repositories.cs",
               "DocumentMoniker": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankAppClassLibrary\\Repositories.cs",
               "RelativeDocumentMoniker": "BankAppClassLibrary\\Repositories.cs",
@@ -35,7 +52,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "frmBankApp.cs",
               "DocumentMoniker": "C:\\Users\\vamic\\source\\repos\\BankApp\\BankApp\\BankApp\\frmBankApp.cs",
               "RelativeDocumentMoniker": "BankApp\\frmBankApp.cs",

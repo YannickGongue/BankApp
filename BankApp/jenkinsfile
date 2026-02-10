@@ -3,14 +3,21 @@ pipeline{
     stages{
         stage("Checkout Code"){
             steps{
-                git branche 'main' url: git@github.com:YannickGongue/BankApp.git'
+                   git url: 'https://github.com/YannickGongue/BankApp.git', branch: 'main'
                 }         
         }
         stage("Build C# App"){
             steps{
-                sh '''dotnet restore BankApp.sln
-                dotnet build BankApp.sln -c Release
-                '''
+                   sh '''
+                          dotnet --version
+
+                           dotnet restore BankApp/BankApp/BankApp.csproj \
+                           -p:EnableWindowsTargeting=true
+
+                            dotnet build BankApp/BankApp/BankApp.csproj \
+                           -c Release \
+                           -p:EnableWindowsTargeting=true
+                       '''
             }
         }
     }
