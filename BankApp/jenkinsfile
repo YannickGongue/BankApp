@@ -9,14 +9,14 @@ pipeline{
         stage("Build C# App"){
             steps{
                    sh '''
-                          dotnet --version
+                           dotnet --version
 
                            dotnet restore BankApp/BankApp/BankApp.csproj \
-                           -p:EnableWindowsTargeting=true
+                                  -p:EnableWindowsTargeting=true
 
-                            dotnet build BankApp/BankApp/BankApp.csproj \
-                           -c Release \
-                           -p:EnableWindowsTargeting=true
+                           dotnet build BankApp/BankApp/BankApp.csproj \
+                                  -c Release \
+                                  -p:EnableWindowsTargeting=true
                        '''
             }
         }
