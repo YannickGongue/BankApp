@@ -4,9 +4,9 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 # Kopiere csproj zuerst (besseres Caching)
-COPY BankApp/BankApp/BankApp.csproj ./BankApp/BankApp/
-COPY BankApp/BankAppClassLibrary/BankAppClassLibrary.csproj ./BankApp/BankAppClassLibrary/
-COPY BankApp/BankAppControlLibrary/BankAppControlLibrary.csproj ./BankApp/BankAppControlLibrary/
+COPY BankApp/BankApp/BankApp/BankApp.csproj ./BankApp/BankApp/
+COPY BankApp/BankApp/BankAppClassLibrary/BankAppClassLibrary.csproj ./BankApp/BankAppClassLibrary/
+COPY BankApp/BankApp/BankAppControlLibrary/BankAppControlLibrary.csproj ./BankApp/BankAppControlLibrary/
 
 # Restore
 RUN dotnet restore BankApp/BankApp/BankApp.csproj
