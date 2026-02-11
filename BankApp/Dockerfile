@@ -11,9 +11,9 @@ COPY . .
 
 # Build & publish
 #RUN dotnet publish BankApp/BankApp/BankApp.csproj \
-    -c Release \
-    -o /app/publish \
-    --no-restore
+    #-c Release \
+    #-o /app/publish \
+    #--no-restore
 
 # -------- RUNTIME STAGE --------
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
