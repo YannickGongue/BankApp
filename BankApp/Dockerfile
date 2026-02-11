@@ -7,10 +7,10 @@ WORKDIR /app
 COPY . .
 
 # Restore dependencies
-RUN dotnet restore BankApp/BankApp/BankApp.csproj
+#RUN dotnet restore BankApp/BankApp/BankApp.csproj
 
 # Build & publish
-RUN dotnet publish BankApp/BankApp/BankApp.csproj \
+#RUN dotnet publish BankApp/BankApp/BankApp.csproj \
     -c Release \
     -o /app/publish \
     --no-restore
