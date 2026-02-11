@@ -1,9 +1,16 @@
 pipeline{
     agent any
     environment{
-        PROJEKT_PATH = "BankApp/BankApp/BankApp.csproj"
+        PROJECT_PATH = "BankApp/BankApp/BankApp.csproj"
         BUILD_CONFIG = "Release"
         ARTIFACTS_DIR = "publish"
+        REGISTRY_CREDENTIALS = "BankApp_accessKeys"
+        ACCOUNT_ID = "322276017193"
+        REGION = "us-east-1"
+        IMAGE_NAME = "bankapprepo"
+        ECR_REGISTRY = "322276017193.dkr.ecr.us-east-1.amazonaws.com"
+        ECR_REGISTRY_URL = "https://322276017193.dkr.ecr.us-east-1.amazonaws.com"
+        FULL_IMAGE = "322276017193.dkr.ecr.us-east-1.amazonaws.com/bankapprepo"
     }
     stages{
         stage("Checkout Code"){
@@ -19,14 +26,14 @@ pipeline{
         }
         stage("Restore Dependencies"){
             steps{
-                   sh  ''' dotnet restore ${PRJECT_PATH} \
+                   sh  ''' dotnet restore ${PROJECT_PATH} \
                            -p EnableWindowsTargeting=true 
                        '''
             }
         }
         stage("Build Application"){
             steps{
-                   sh  ''' dotnet build ${PROJEKT_PATH} -c ${BUILD_CONFIG} \
+                   sh  ''' dotnet build ${PROJECT_PATH} -c ${BUILD_CONFIG} \
                             -p EnableWindowsTargeting=true 
                         '''
             }
@@ -39,15 +46,40 @@ pipeline{
         stage("Build Artifact"){
             steps{
                    sh '''
-                        dotnet publish ${PROJEKT_PATH} \
+                        dotnet publish ${PROJECT_PATH} \
                              -c ${BUILD_CONFIG} \
-                             -o ${ARTIFACTS_DIR}
+                             -o ${ARTIFACTS_DIR} \
+                             -p EnableWindowsTargeting=true
                       '''
             }
         }
         stage("archive Build output"){
             steps{
                    archiveArtifacts artifacts: "${ARTIFACTS_DIR}/**", allowEmptyArchive: false
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    dockerImage = docker.build(
+                        "${env.FULL_IMAGE}:${BUILD_NUMBER}",
+                        "./Docker-files/app/multistage/"
+                    )
+                }
+            }
+        }
+        stage('Upload App Image to ECR') {
+          steps {
+             script {
+                   dockerImage.push("${BUILD_NUMBER}")
+                  dockerImage.push("latest")
+             }
+          } 
+        }
+   
+       stage('Remove Container Images'){
+            steps{
+                sh 'docker rmi -f $(docker images -a -q)'
             }
         }
         stage("Hello") {
