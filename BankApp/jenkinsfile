@@ -63,7 +63,7 @@ pipeline{
                 script {
                     dockerImage = docker.build(
                         "${env.FULL_IMAGE}:${BUILD_NUMBER}",
-                        "./Docker-files/app/multistage/"
+                        "BankApp/Dockerfile"
                     )
                 }
             }
