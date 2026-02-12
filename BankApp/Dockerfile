@@ -6,9 +6,13 @@ WORKDIR /app
 # Copy everything into the container
 COPY . .
 
-# Restore and build the main project
+# Set working directory to the project folder
 WORKDIR /app/BankApp/BankApp
+
+# Restore dependencies
 RUN dotnet restore BankApp.csproj
+
+# Publish the app
 RUN dotnet publish BankApp.csproj -c Release -o /app/publish --no-restore
 
 # -------- RUNTIME STAGE --------
